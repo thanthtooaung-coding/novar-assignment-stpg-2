@@ -5,33 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PaperPrint - Your Printing Solutions</title>
 
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-    <!-- Custom CSS -->
     <style>
         /* CSS Reset and Base Styles */
         :root {
-            --primary-color: #2563eb;
+            --primary-color: #4f46e5; /* Indigo */
             --secondary-color: #f3f4f6;
             --accent-color: #facc15; /* Yellow */
             --text-color: #1f2937;
             --light-text-color: #6b7280;
-            --background-color: #ffffff;
+            --background-color: #f9fafb; /* Lighter gray */
             --white-color: #ffffff;
             --dark-blue-bg: #1e3a8a;
             --light-blue-bg: #e0f2fe;
-            --shadow-color: rgba(0, 0, 0, 0.08);
+            --shadow-color: rgba(0, 0, 0, 0.06);
             --border-color: #e5e7eb;
-            --border-radius: 0.5rem;
+            --border-radius: 0.75rem; /* Slightly more rounded */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -53,72 +52,26 @@
             box-shadow: 0 2px 4px var(--shadow-color);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .nav-logo {
-            font-size: 1.75rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: var(--text-color);
-        }
-
-        .nav-center {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-        
-        .nav-link {
-            text-decoration: none;
-            color: var(--light-text-color);
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: var(--border-radius);
-            transition: color 0.3s ease, background-color 0.3s ease;
-        }
-
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .nav-logo { font-size: 1.75rem; font-weight: bold; text-decoration: none; color: var(--text-color); }
+        .nav-center { display: flex; gap: 2rem; }
+        .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+        .nav-link { text-decoration: none; color: var(--light-text-color); font-weight: 500; padding: 0.5rem 1rem; border-radius: var(--border-radius); transition: color 0.3s ease, background-color 0.3s ease; }
         .nav-link:hover { color: var(--text-color); }
-
-        .nav-link.active {
-            color: var(--text-color);
-            background-color: var(--accent-color);
-            font-weight: 600;
-        }
-        
-        .login-button {
-            padding: 0.5rem 1rem;
-            background-color: #333;
-            color: var(--white-color);
-            border: none;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-        }
-
+        .nav-link.active { color: var(--text-color); background-color: var(--accent-color); font-weight: 600; }
+        .login-button { padding: 0.5rem 1rem; background-color: #333; color: var(--white-color); border: none; border-radius: var(--border-radius); cursor: pointer; text-decoration: none; font-weight: 500; transition: background-color 0.3s ease; }
         .login-button:hover { background-color: #555; }
-        
         .mobile-menu-button { display: none; background: none; border: none; cursor: pointer; font-size: 1.5rem; }
         .mobile-menu { display: none; flex-direction: column; gap: 1rem; padding: 1rem 0; }
         .mobile-menu .nav-link { display: block; text-align: center; }
 
         /* Page Section Base */
-        .page-section { display: none; padding: 3rem 0; }
+        .page-section { display: none; padding: 4rem 0; }
         .page-section.active { display: block; }
+        .page-section:last-of-type { padding-bottom: 0;}
 
         /* Section Titles */
         .section-title {
@@ -134,151 +87,219 @@
             background-color: var(--accent-color);
             margin: 0 auto 3rem auto;
             border-radius: 2px;
-        }
+        }        
 
         /* Home Page */
-        .home-hero { width: 100%; height: 400px; object-fit: cover; border-radius: var(--border-radius); margin-bottom: 3rem; }
-        .home-welcome, .home-section { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 4rem; }
+        .home-hero { width: 100%; height: 400px; object-fit: cover; border-radius: var(--border-radius); margin-bottom: 4rem; }
+        .home-section { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 4rem; }
         .home-section img { width: 100%; border-radius: var(--border-radius); }
-        .home-section .text-content { order: 1; }
-        .home-section .image-content { order: 2; }
         .home-section.reverse .text-content { order: 2; }
         .home-section.reverse .image-content { order: 1; }
 
+        /* Home Services Section */
+        .home-services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .home-service-card { background: var(--white-color); padding: 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: 0 4px 12px var(--shadow-color); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .home-service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .home-service-card .icon { font-size: 1.5rem; color: var(--white-color); background-color: var(--primary-color); width: 50px; height: 50px; border-radius: 0.5rem; display: grid; place-items: center; margin-bottom: 1.5rem; }
+        .home-service-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+        .home-service-card p { color: var(--light-text-color); margin-bottom: 1.5rem; }
+        .home-service-card .learn-more-btn { color: var(--primary-color); text-decoration: none; font-weight: 600; }
+        .learn-more-btn i { transition: transform 0.3s ease; display: inline-block; }
+        .learn-more-btn:hover i { transform: translateX(5px); }
+
         /* Services Page */
         .services-nav { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
-        .service-nav-btn {
-            background: var(--white-color);
-            border: 1px solid var(--border-color);
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
+        .service-nav-btn { background: var(--white-color); border: 1px solid var(--border-color); padding: 0.75rem 1.5rem; border-radius: var(--border-radius); cursor: pointer; font-weight: 500; transition: all 0.3s ease; }
         .service-nav-btn:hover { background-color: var(--secondary-color); }
         .service-nav-btn.active { background-color: var(--primary-color); color: var(--white-color); border-color: var(--primary-color); }
-
         .service-content { display: none; }
         .service-content.active { display: block; }
         
-        .service-card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-        .service-card { background: var(--light-blue-bg); border: 1px solid var(--border-color); border-radius: var(--border-radius); overflow: hidden; }
-        .service-card img { width: 100%; height: 250px; object-fit: cover; }
-        .service-card-body { padding: 1.5rem; }
-        .learn-more-btn { color: var(--primary-color); text-decoration: none; font-weight: 600; }
-        
-        .product-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; text-align: center; }
-        .product-item img { width: 100%; border: 1px solid var(--border-color); border-radius: var(--border-radius); margin-bottom: 0.5rem; aspect-ratio: 1/1; object-fit: cover;}
-
         /* Image Slider */
         .slider { position: relative; max-width: 900px; margin: 2rem auto; }
-        .slide { display: none; }
+        .slide { display: none; animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0.4; } to { opacity: 1; } }
         .slide img { width: 100%; height: 500px; object-fit: cover; border-radius: var(--border-radius); }
         .prev, .next { cursor: pointer; position: absolute; top: 50%; width: auto; padding: 16px; margin-top: -22px; color: white; font-weight: bold; font-size: 24px; transition: 0.3s ease; border-radius: 0 3px 3px 0; user-select: none; background-color: rgba(0,0,0,0.4); }
         .next { right: 0; border-radius: 3px 0 0 3px; }
         .prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
         .dots-container { text-align: center; padding-top: 1rem; }
-        .dot { cursor: pointer; height: 15px; width: 15px; margin: 0 2px; background-color: #bbb; border-radius: 50%; display: inline-block; transition: background-color 0.6s ease; }
+        .dot { cursor: pointer; height: 12px; width: 12px; margin: 0 4px; background-color: #bbb; border-radius: 50%; display: inline-block; transition: background-color 0.6s ease; }
         .dot.active { background-color: var(--primary-color); }
+        
+        /* Products Offered Grid */
+        .product-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+        .product-card { background: var(--white-color); border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 4px 12px var(--shadow-color); transition: transform 0.3s ease; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-card .product-image { height: 180px; width: 100%; object-fit: cover; }
+        .product-card .title-area { padding: 1rem; text-align: center; font-weight: 600; color: var(--text-color); }
 
-        /* Packages Page */
-        .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .package-card {
-            border: 2px solid var(--primary-color);
-            border-radius: var(--border-radius);
-            text-align: center;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
+        /* === NEW: Custom Package Builder (Wireframe Style) === */
+        #custom-package {
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
+        .custom-package-option-group { margin-bottom: 2.5rem; }
+        .custom-package-option-group h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .custom-package-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .custom-option-card {
+            background-color: var(--white-color);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 4px var(--shadow-color);
+        }
+        .custom-option-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .custom-option-card img { width: 100%; height: 160px; object-fit: cover; border-radius: var(--border-radius) var(--border-radius) 0 0; }
+        .custom-option-card .option-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem;
+        }
+        .custom-option-card input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+        }
+        .custom-option-card.selected { border-color: var(--primary-color); }
+        #custom-package .payment-btn-container {
+             text-align: right;
+             margin-top: 3rem;
+        }
+
+        /* === NEW: Payment Page (Wireframe Style) === */
+        .payment-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: flex-start;}
+        #payment-summary-card { 
+            background: var(--light-blue-bg); 
+            padding: 2rem; 
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+        }
+        #payment-summary-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        #payment-summary-list {
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
+        }
+        #payment-total-cost {
+            text-align: right;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .payment-form { background: var(--white-color); padding: 2rem; border-radius: var(--border-radius); box-shadow: 0 4px 12px var(--shadow-color); }
+        .payment-form h3 {
+             font-size: 1.5rem;
+             margin-bottom: 2rem;
+             text-align: center;
+        }
+        .payment-form .form-row { display: flex; gap: 1rem; }
+        .payment-form .form-group { flex: 1; margin-bottom: 1.25rem; }
+        .payment-form label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        .payment-form input, .payment-form select { width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 0.5rem; }
+        .payment-form .agreement-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        .credit-card-icons { display: flex; gap: 0.5rem; font-size: 1.5rem; margin-bottom: 1.5rem; }
+        .payment-btn { display: block; width: 100%; text-align: center; background: var(--primary-color); color: var(--white-color); padding: 1rem; border-radius: var(--border-radius); text-decoration: none; font-weight: 600; border: none; font-size: 1rem; cursor: pointer; }
+        
+        /* Modal */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
+        .modal-content { background-color: #fefefe; margin: 15% auto; padding: 2rem; border-radius: var(--border-radius); width: 90%; max-width: 500px; text-align: center; }
+        .modal-content .icon { font-size: 3rem; color: #22c55e; margin-bottom: 1rem; }
+
+        /* Packages & Other Pages */
+        .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .package-card { border: 2px solid var(--primary-color); border-radius: var(--border-radius); text-align: center; overflow: hidden; display: flex; flex-direction: column; }
         .package-card img { width: 100%; height: 200px; object-fit: cover; }
         .package-card h3 { margin: 1rem 0; font-size: 1.5rem; }
-        .package-card-body {
-            padding: 1.5rem;
-            background: var(--light-blue-bg);
-            flex-grow: 1;
-        }
+        .package-card-body { padding: 1.5rem; background: var(--light-blue-bg); flex-grow: 1; }
         .package-card ul { list-style-type: none; text-align: left; }
         .package-card ul li::before { content: '•'; color: var(--primary-color); font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; }
-        
-        .package-card-footer {
-            background: var(--light-blue-bg);
-            padding: 0 1.5rem 1.5rem 1.5rem;
-        }
-
-        .package-btn {
-            display: block;
-            background-color: var(--primary-color);
-            color: var(--white-color);
-            text-decoration: none;
-            padding: 0.75rem 1rem;
-            border-radius: var(--border-radius);
-            text-align: center;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-        .package-btn:hover { background-color: #1d4ed8; }
-        
+        .package-card-footer { background: var(--light-blue-bg); padding: 0 1.5rem 1.5rem 1.5rem; }
+        .package-btn:hover { background-color: #4338ca; }
         .quote-section { border: 2px dashed var(--border-color); border-radius: var(--border-radius); padding: 2rem; text-align: center; margin-top: 3rem; }
         .quote-btn { background: var(--accent-color); color: var(--text-color); padding: 0.75rem 2rem; border-radius: var(--border-radius); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 1rem; }
+        .auth-container { max-width: 450px; margin: 2rem auto; border: 1px solid var(--border-color); padding: 2rem; border-radius: var(--border-radius); }
+        .profile-container { background-color: #e2e8f0; padding: 2rem; border-radius: var(--border-radius); max-width: 800px; margin: 0 auto; }
 
-        /* About & Contact Page */
-        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: flex-start; }
-        .contact-form-container { background: var(--dark-blue-bg); color: var(--white-color); padding: 2rem; border-radius: var(--border-radius); }
-        .contact-form-container label { color: #d1d5db; }
-        .contact-form-container input, .contact-form-container textarea { background: #2b4b8a; border: 1px solid #4a6a9a; color: white; width: 100%; padding: 0.75rem; border-radius: var(--border-radius); }
-        .contact-form-container input::placeholder, .contact-form-container textarea::placeholder { color: #9ca3af; }
-        .contact-form-container button { background: var(--primary-color); width: 100%; border: none; padding: 0.75rem; color: white; font-weight: 600; border-radius: var(--border-radius); cursor: pointer; }
+        .about-content { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: flex-start; }
+        .contact-form-container { background: var(--white-color); padding: 2rem; border-radius: var(--border-radius); box-shadow: 0 4px 20px var(--shadow-color); }
+        .contact-form-container .form-group { margin-bottom: 1rem; }
+        .contact-form-container label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        .contact-form-container input, .contact-form-container textarea { width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 0.5rem; }
+        .contact-form-container button { width: 100%; padding: 1rem; border: none; background-color: var(--primary-color); color: white; font-weight: 600; border-radius: var(--border-radius); cursor: pointer; }
 
         /* Login & Signup Pages */
-        .auth-container { max-width: 450px; margin: 2rem auto; border: 1px solid var(--border-color); padding: 2rem; border-radius: var(--border-radius); }
-        .auth-container h1 { text-align: center; }
-        .auth-container input { width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--border-radius); margin-bottom: 1rem; }
-        .auth-container button { width: 100%; padding: 0.75rem; border: none; background: var(--primary-color); color: white; font-weight: 600; border-radius: var(--border-radius); cursor: pointer; }
-        .auth-container p { text-align: center; margin-top: 1.5rem; }
-
+        .auth-container { max-width: 450px; margin: 3rem auto; background: var(--white-color); padding: 3rem; border-radius: var(--border-radius); box-shadow: 0 4px 20px var(--shadow-color); text-align: center; }
+        .auth-container h1 { margin-bottom: 2rem; }
+        .auth-container .form-group { text-align: left; margin-bottom: 1rem; }
+        .auth-container label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        .auth-container input { width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 0.5rem; }
+        .auth-container button { width: 100%; padding: 1rem; margin: 1rem 0; border: none; background: var(--primary-color); color: white; font-weight: 600; border-radius: var(--border-radius); cursor: pointer; }
+        .auth-container p { color: var(--light-text-color); }
+        .auth-container p a { color: var(--primary-color); font-weight: 600; text-decoration: none; }
+        .auth-container p a.accent { color: #111827; background-color: var(--accent-color); padding: 0.25rem 0.5rem; border-radius: 0.25rem;}
+        
         /* Profile Page */
-        .profile-container { background-color: #e2e8f0; padding: 2rem; border-radius: var(--border-radius); max-width: 800px; margin: 0 auto; }
-        .profile-header { display: flex; align-items: center; gap: 2rem; background-color: var(--white-color); padding: 1.5rem; border-radius: var(--border-radius); }
-        .profile-pic { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; }
-        .profile-info h2 { margin-bottom: 0.5rem; }
-        .edit-profile-btn { background: #3b82f6; color: white; border: none; padding: 0.5rem 1.5rem; border-radius: 999px; cursor: pointer; }
+        .profile-container { max-width: 800px; margin: 2rem auto; background-color: #f3f4f6; padding: 2rem; border-radius: var(--border-radius); }
+        .profile-header { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+        .profile-pic-wrapper { width: 120px; height: 120px; border-radius: 50%; background-color: var(--primary-color); color: white; display: grid; place-items: center; font-size: 3rem; }
+        .profile-info h2 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+        .edit-profile-btn { background: none; border: none; color: var(--primary-color); font-weight: 500; cursor: pointer; }
         .profile-actions { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
         .profile-action-btn { background: var(--white-color); border: 1px solid var(--border-color); padding: 1rem; text-align: left; border-radius: var(--border-radius); font-weight: 500; cursor: pointer; width: 100%; }
+        .profile-action-btn.logout { color: #ef4444; }
         
         /* Footer */
-        .footer { border-top: 1px solid var(--border-color); padding-top: 2rem; margin-top: 3rem; }
-        .footer-content { display: flex; justify-content: space-between; align-items: center; }
-        .social-icons a { margin: 0 0.5rem; font-size: 1.25rem; color: var(--light-text-color); }
-        .footer-links a { margin: 0 0.75rem; text-decoration: none; color: var(--light-text-color); }
+        .footer { border-top: 1px solid var(--border-color); padding: 2rem 0; margin-top: 4rem; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .social-icons a { margin: 0 0.5rem; font-size: 1.25rem; color: var(--light-text-color); transition: color 0.3s ease; }
+        .social-icons a:hover { color: var(--primary-color); }
+        .footer-links a { margin: 0 0.75rem; text-decoration: none; color: var(--light-text-color); transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--primary-color); }
 
         /* Responsive Design */
-        @media (max-width: 992px) {
-            .packages-grid, .service-card-grid { grid-template-columns: 1fr 1fr; }
-            .product-grid { grid-template-columns: repeat(3, 1fr); }
-            .home-welcome, .home-section, .about-content { grid-template-columns: 1fr; }
-            .home-section .text-content, .home-section.reverse .text-content { order: 2; }
-            .home-section .image-content, .home-section.reverse .image-content { order: 1; }
+        @media (max-width: 1200px) {
+            .custom-package-grid { grid-template-columns: repeat(3, 1fr); }
         }
-
+        @media (max-width: 992px) {
+            .packages-grid, .payment-layout, .about-content { grid-template-columns: 1fr; }
+            .product-grid { grid-template-columns: repeat(3, 1fr); }
+            .home-section { grid-template-columns: 1fr; }
+            .custom-package-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
             .nav-center, .nav-right { display: none; }
             .mobile-menu-button { display: block; }
-            .packages-grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 576px) {
-            .service-card-grid { grid-template-columns: 1fr; }
+            .packages-grid, .home-services-grid { grid-template-columns: 1fr; }
             .product-grid { grid-template-columns: repeat(2, 1fr); }
-            .footer-content { flex-direction: column; gap: 1rem; }
         }
-
+         @media (max-width: 576px) {
+            .footer-content { flex-direction: column; gap: 1rem; text-align: center;}
+            .custom-package-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header class="header">
         <div class="container">
             <nav class="navbar">
@@ -306,25 +327,37 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="container">
 
-        <!-- Home Page Section -->
         <section id="home" class="page-section">
             <img src="https://placehold.co/1200x400/e0f2fe/1e3a8a?text=Welcome+to+PaperPrint" alt="PaperPrint Hero Image" class="home-hero">
             
-            <div class="home-welcome">
-                <div class="text-content">
-                    <h2>Welcome</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive printing and design solutions for all your business needs.</p>
+            <div class="home-services-grid">
+                <div class="home-service-card">
+                    <div class="icon"><i class="fas fa-palette"></i></div>
+                    <h3>Logo Design</h3>
+                    <p>Create memorable brand identities with our professional logo design services.</p>
+                    <a href="#services&tab=logo-designs" class="learn-more-btn nav-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="image-content">
-                    <div class="services-nav">
-                        <div class="service-nav-btn" style="width: 48%; text-align:center;">Logo Designs</div>
-                        <div class="service-nav-btn" style="width: 48%; text-align:center;">Marketing</div>
-                        <div class="service-nav-btn" style="width: 48%; text-align:center;">Sustainable</div>
-                        <div class="service-nav-btn" style="width: 48%; text-align:center;">Worldwide Shipping</div>
-                    </div>
+                 <div class="home-service-card">
+                    <div class="icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3>Marketing Materials</h3>
+                    <p>Boost your marketing efforts with eye-catching brochures, flyers, and banners.</p>
+                    <a href="#services&tab=marketing-materials" class="learn-more-btn nav-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                 <div class="home-service-card">
+                    <div class="icon"><i class="fas fa-recycle"></i></div>
+                    <h3>Eco-Friendly Printing</h3>
+                    <p>Sustainable printing solutions using recycled materials and eco-friendly inks.</p>
+                    <a href="#services&tab=eco-friendly" class="learn-more-btn nav-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                 <div class="home-service-card">
+                    <div class="icon"><i class="fas fa-truck-fast"></i></div>
+                    <h3>Global Shipping</h3>
+                    <p>Fast and reliable worldwide shipping to get your prints delivered anywhere.</p>
+                    <a href="#services&tab=global-shipping" class="learn-more-btn nav-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -332,7 +365,7 @@
                  <div class="text-content">
                     <h2>Packages</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <a href="#packages" class="learn-more-btn nav-link">Learn More</a>
+                    <a href="#packages" class="learn-more-btn nav-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="image-content">
                     <img src="https://placehold.co/600x400/fefce8/ca8a04?text=Our+Packages" alt="Packages">
@@ -343,72 +376,76 @@
                  <div class="text-content">
                     <h2>About & Contact Us</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <a href="#about" class="learn-more-btn nav-link">Learn More</a>
+                    <a href="#about" class="learn-more-btn nav-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="image-content">
                     <img src="https://placehold.co/600x400/f0f9ff/0284c7?text=Contact+Us" alt="Contact">
                 </div>
             </div>
+
         </section>
 
-        <!-- Services Page Section -->
         <section id="services" class="page-section">
             <h1 class="section-title">Services</h1>
             <span class="section-title-underline"></span>
             
             <nav class="services-nav">
-                <button class="service-nav-btn active" data-target="logo-designs">Logo designs</button>
-                <button class="service-nav-btn" data-target="marketing">Marketing</button>
-                <button class="service-nav-btn" data-target="sustainable">Sustainable and recycling</button>
-                <button class="service-nav-btn" data-target="shipping">Worldwide shipping</button>
-                <button class="service-nav-btn" data-target="other">Other Services</button>
+                <button class="service-nav-btn" data-target="logo-designs">Logo Design</button>
+                <button class="service-nav-btn" data-target="marketing-materials">Marketing Materials</button>
+                <button class="service-nav-btn" data-target="eco-friendly">Eco-Friendly Printing</button>
+                <button class="service-nav-btn" data-target="global-shipping">Global Shipping</button>
             </nav>
 
-            <div id="logo-designs" class="service-content active">
-                <div class="slider">
-                    <div class="slide" style="display: block;"><img src="https://placehold.co/900x500/A8D5E2/1E40AF?text=Modern+Logo+1" alt="Logo Design 1"></div>
-                    <div class="slide"><img src="https://placehold.co/900x500/F9A826/8D2B0B?text=Vintage+Logo+2" alt="Logo Design 2"></div>
-                    <div class="slide"><img src="https://placehold.co/900x500/E2A8D5/4A1EAF?text=Minimalist+Logo+3" alt="Logo Design 3"></div>
+            <div id="logo-designs" class="service-content">
+                <div class="slider" data-slider-id="logo">
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1557053910-d9eadeed1c58?w=900&h=500&fit=crop&q=80" alt="Logo Design 1" onerror="this.onerror=null;this.src='https://placehold.co/900x500/A8D5E2/1E40AF?text=Modern+Logo+1';"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1607003509819-ea2333545601?w=900&h=500&fit=crop&q=80" alt="Logo Design 2" onerror="this.onerror=null;this.src='https://placehold.co/900x500/F9A826/8D2B0B?text=Vintage+Logo+2';"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=900&h=500&fit=crop&q=80" alt="Logo Design 3" onerror="this.onerror=null;this.src='https://placehold.co/900x500/E2A8D5/4A1EAF?text=Minimalist+Logo+3';"></div>
                     <a class="prev">&#10094;</a>
                     <a class="next">&#10095;</a>
                 </div>
-                <div class="dots-container">
-                    <span class="dot active" data-slide="0"></span>
-                    <span class="dot" data-slide="1"></span>
-                    <span class="dot" data-slide="2"></span>
+                <div class="dots-container" data-dots-for="logo"></div>
+                <p class="section-subtitle" style="margin-top: 2rem;">From concept to final design, we craft logos that tell your brand's story.</p>
+
+                <h2 class="section-title" style="margin-top: 4rem;">Related Products</h2>
+                <span class="section-title-underline"></span>
+                <div class="product-grid">
+                    <div class="product-card"><img class="product-image" src="https://placehold.co/200x200/eef2ff/4338ca?text=Logo+1" alt="Logo 1"><div class="title-area"><p>Abstract Mark</p></div></div>
+                    <div class="product-card"><img class="product-image" src="https://placehold.co/200x200/e0e7ff/3730a3?text=Logo+2" alt="Logo 2"><div class="title-area"><p>Wordmark</p></div></div>
+                    <div class="product-card"><img class="product-image" src="https://placehold.co/200x200/c7d2fe/4338ca?text=Logo+3" alt="Logo 3"><div class="title-area"><p>Pictorial Mark</p></div></div>
+                    <div class="product-card"><img class="product-image" src="https://placehold.co/200x200/a5b4fc/4f46e5?text=Logo+4" alt="Logo 4"><div class="title-area"><p>Emblem</p></div></div>
+                    <div class="product-card"><img class="product-image" src="https://placehold.co/200x200/818cf8/6366f1?text=Logo+5" alt="Logo 5"><div class="title-area"><p>Mascot</p></div></div>
                 </div>
-                <p style="text-align: center; margin-top: 1rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
 
-            <div id="marketing" class="service-content">
-                <div class="service-card-grid">
-                    <div class="service-card">
-                        <img src="https://placehold.co/600x400/fee2e2/991b1b?text=Flyers" alt="Flyers">
-                        <div class="service-card-body"><h3>Flyers & Brochures</h3><p>High-quality prints to showcase your business.</p></div>
-                    </div>
-                     <div class="service-card">
-                        <img src="https://placehold.co/600x400/dcfce7/166534?text=Banners" alt="Banners">
-                        <div class="service-card-body"><h3>Banners & Posters</h3><p>Large format printing for maximum impact.</p></div>
-                    </div>
+            <div id="marketing-materials" class="service-content">
+                <div class="slider" data-slider-id="marketing">
+                    <div class="slide"><img src="https://placehold.co/900x500/fee2e2/991b1b?text=Flyers" alt="Flyers"></div>
+                    <div class="slide"><img src="https://placehold.co/900x500/dcfce7/166534?text=Banners" alt="Banners"></div>
+                    <div class="slide"><img src="https://placehold.co/900x500/e0e7ff/3730a3?text=Business+Cards" alt="Business Cards"></div>
+                    <a class="prev">&#10094;</a>
+                    <a class="next">&#10095;</a>
+                </div>
+                 <div class="dots-container" data-dots-for="marketing"></div>
+                <p class="section-subtitle" style="margin-top: 2rem;">High-quality prints that make a lasting impression, from flyers to large-format banners.</p>
+                <h2 class="section-title" style="margin-top: 4rem;">Related Products</h2>
+                <span class="section-title-underline"></span>
+                <div class="product-grid">
+                    <div class="product-card"><img class="product-image" src="https://images.unsplash.com/photo-1588347470529-8e151523b55c?w=500&auto=format&fit=crop&q=60" alt="Flyer"><div class="title-area"><p>Flyers</p></div></div>
+                    <div class="product-card"><img class="product-image" src="https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=500&auto=format&fit=crop&q=60" alt="Brochure"><div class="title-area"><p>Brochures</p></div></div>
+                    <div class="product-card"><img class="product-image" src="https://images.unsplash.com/photo-1600880292210-859bb1ae0b28?w=500&auto=format&fit=crop&q=60" alt="Business Cards"><div class="title-area"><p>Business Cards</p></div></div>
                 </div>
             </div>
             
-            <div id="sustainable" class="service-content"><p class="text-center">Content for Sustainable and Recycling coming soon.</p></div>
-            <div id="shipping" class="service-content"><p class="text-center">Content for Worldwide Shipping coming soon.</p></div>
-            <div id="other" class="service-content"><p class="text-center">Content for Other Services coming soon.</p></div>
-            
-            <h2 class="section-title" style="margin-top: 4rem;">Product Offered</h2>
-            <span class="section-title-underline"></span>
-            <div class="product-grid">
-                <div class="product-item"><img src="https://placehold.co/200x200/fafafa/6b7280?text=Bags" alt="Bags"><p>Bags</p></div>
-                <div class="product-item"><img src="https://placehold.co/200x200/fafafa/6b7280?text=Mugs" alt="Mugs"><p>Mugs</p></div>
-                <div class="product-item"><img src="https://placehold.co/200x200/fafafa/6b7280?text=T-Shirts" alt="T-shirts"><p>T-shirts</p></div>
-                <div class="product-item"><img src="https://placehold.co/200x200/fafafa/6b7280?text=Calendars" alt="Calendars"><p>Calendars</p></div>
-                <div class="product-item"><img src="https://placehold.co/200x200/fafafa/6b7280?text=Canvas" alt="Canvas Prints"><p>Canvas Prints</p></div>
+            <div id="eco-friendly" class="service-content">
+                 <p>Content for Eco-Friendly Printing</p>
+            </div>
+
+            <div id="global-shipping" class="service-content">
+                <p>Content for Global Shipping</p>
             </div>
         </section>
 
-        <!-- Packages Page Section -->
         <section id="packages" class="page-section">
             <h1 class="section-title">Packages</h1>
             <span class="section-title-underline"></span>
@@ -439,65 +476,166 @@
                 </div>
             </div>
             <div class="quote-section">
-                <h2>Custom Package</h2>
-                <img src="https://placehold.co/600x200/fafafa/6b7280?text=Your+Idea+Here" alt="Custom Package" style="width: 100%; max-width: 600px; margin: 1rem auto; border-radius: var(--border-radius);">
-                <a href="#about" class="quote-btn nav-link">Get a Quote</a>
+                <h2>Create Your Own Package</h2>
+                <p class="section-subtitle" style="margin: 1rem auto;">Don't see a package that fits? Build your own from scratch!</p>
+                <a href="#custom-package" class="quote-btn nav-link">Get a Quote</a>
+            </div>
+        </section>
+        
+        <section id="custom-package" class="page-section">
+            <h1 class="section-title">Create Custom Package</h1>
+            <span class="section-title-underline"></span>
+
+            <div class="custom-package-option-group" data-selection-type="single">
+                <h3>Choose Your Event Size</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="10 Guests" data-price="100"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=180&fit=crop" alt="10 Guests"><label class="option-label"><input type="checkbox"><p>10 Guests</p></label></div>
+                    <div class="custom-option-card" data-name="30 Guests" data-price="250"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=180&fit=crop" alt="30 Guests"><label class="option-label"><input type="checkbox"><p>30 Guests</p></label></div>
+                    <div class="custom-option-card" data-name="50 Guests" data-price="400"><img src="https://images.unsplash.com/photo-1529156069898-4242e49c34d4?w=400&h=180&fit=crop" alt="50 Guests"><label class="option-label"><input type="checkbox"><p>50 Guests</p></label></div>
+                    <div class="custom-option-card" data-name="100+ Guests" data-price="750"><img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=400&h=180&fit=crop" alt="100+ Guests"><label class="option-label"><input type="checkbox"><p>100+ Guests</p></label></div>
+                </div>
+            </div>
+
+            <div class="custom-package-option-group" data-selection-type="multiple">
+                <h3>Choose Your Decorations</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="Balloons" data-price="50"><img src="https://images.unsplash.com/photo-1543425289-43405795b111?w=400&h=180&fit=crop" alt="Balloons"><label class="option-label"><input type="checkbox"><p>Balloons</p></label></div>
+                    <div class="custom-option-card" data-name="Banners" data-price="30"><img src="https://images.unsplash.com/photo-1504196606612-333507153129?w=400&h=180&fit=crop" alt="Banners"><label class="option-label"><input type="checkbox"><p>Banners</p></label></div>
+                    <div class="custom-option-card" data-name="Tablecloths" data-price="40"><img src="https://images.unsplash.com/photo-1617013533238-6338b556948d?w=400&h=180&fit=crop" alt="Tablecloths"><label class="option-label"><input type="checkbox"><p>Tablecloths</p></label></div>
+                    <div class="custom-option-card" data-name="Centerpieces" data-price="60"><img src="https://images.unsplash.com/photo-1565881420285-56fb4f346979?w=400&h=180&fit=crop" alt="Centerpieces"><label class="option-label"><input type="checkbox"><p>Centerpieces</p></label></div>
+                </div>
+            </div>
+            
+             <div class="custom-package-option-group" data-selection-type="multiple">
+                <h3>Choose Your Food Options</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="Cheese Platter" data-price="80"><img src="https://images.unsplash.com/photo-1627435601361-ec25f2378f83?w=400&h=180&fit=crop" alt="Cheese"><label class="option-label"><input type="checkbox"><p>Cheese Platter</p></label></div>
+                    <div class="custom-option-card" data-name="Cakes" data-price="60"><img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=400&h=180&fit=crop" alt="Cakes"><label class="option-label"><input type="checkbox"><p>Cakes</p></label></div>
+                    <div class="custom-option-card" data-name="Salads" data-price="45"><img src="https://images.unsplash.com/photo-1551248429-40974011e548?w=400&h=180&fit=crop" alt="Salads"><label class="option-label"><input type="checkbox"><p>Salads</p></label></div>
+                    <div class="custom-option-card" data-name="Snacks" data-price="35"><img src="https://images.unsplash.com/photo-1600359768328-69445a5d1b33?w=400&h=180&fit=crop" alt="Snacks"><label class="option-label"><input type="checkbox"><p>Snacks</p></label></div>
+                </div>
+            </div>
+            
+             <div class="custom-package-option-group" data-selection-type="multiple">
+                <h3>Choose Your Printed Materials</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="Invitations" data-price="50"><img src="https://images.unsplash.com/photo-15180660_9901-1e24bf37d9a3?w=400&h=180&fit=crop" alt="Invitations"><label class="option-label"><input type="checkbox"><p>Invitations</p></label></div>
+                    <div class="custom-option-card" data-name="Place Cards" data-price="25"><img src="https://images.unsplash.com/photo-1620986989333-f725a39a667e?w=400&h=180&fit=crop" alt="Place Cards"><label class="option-label"><input type="checkbox"><p>Place Cards</p></label></div>
+                    <div class="custom-option-card" data-name="Menus" data-price="30"><img src="https://images.unsplash.com/photo-1563188383-75276368297f?w=400&h=180&fit=crop" alt="Menus"><label class="option-label"><input type="checkbox"><p>Menus</p></label></div>
+                    <div class="custom-option-card" data-name="Thank You Cards" data-price="40"><img src="https://images.unsplash.com/photo-1549465220-1a8a9238cd48?w=400&h=180&fit=crop" alt="Thank You Cards"><label class="option-label"><input type="checkbox"><p>Thank You Cards</p></label></div>
+                </div>
+            </div>
+            <div class="payment-btn-container">
+                <a href="#payment" id="proceed-to-payment" class="payment-btn nav-link" style="display: inline-block; width: auto; padding: 0.75rem 2rem;">Proceed to Payment</a>
             </div>
         </section>
 
-        <!-- About & Contact Page Section -->
+        <section id="payment" class="page-section">
+             <h1 class="section-title">Payment</h1>
+             <span class="section-title-underline"></span>
+             <div class="payment-layout">
+                 <form class="payment-form" id="card-payment-form">
+                     <h3>Event & Billing Details</h3>
+                     <div class="form-row">
+                         <div class="form-group"><label for="event-date">Event Date</label><input type="date" id="event-date" required></div>
+                         <div class="form-group"><label for="location">Location Address</label><input type="text" id="location" required></div>
+                     </div>
+                      <div class="form-row">
+                         <div class="form-group"><label for="event-time">Event Time</label><input type="time" id="event-time" required></div>
+                         <div class="form-group"><label for="guest-services">Guest Services</label><input type="text" id="guest-services"></div>
+                     </div>
+                      <div class="form-row">
+                         <div class="form-group"><label for="payment-option">Payment Option</label><input type="text" id="payment-option"></div>
+                         <div class="form-group"><label for="payment-method">Selected Payment Method</label><input type="text" id="payment-method"></div>
+                     </div>
+                     <div class="form-row">
+                         <div class="form-group"><label for="num-guests">No. of Guests</label><input type="number" id="num-guests" required></div>
+                         <div class="form-group"><label for="full-name">Full Name</label><input type="text" id="full-name" placeholder="John Doe" required></div>
+                     </div>
+                     <div class="form-group">
+                         <label for="email-address">Email Address</label><input type="email" id="email-address" placeholder="you@example.com" required>
+                     </div>
+                     <div class="form-group">
+                         <label for="card-number">Card Number</label>
+                          <div class="credit-card-icons"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-paypal"></i></div>
+                         <input type="text" id="card-number" placeholder="1234 5678 9123 4567" required>
+                     </div>
+                     <div class="form-group">
+                         <label for="billing-address">Billing Address</label><input type="text" id="billing-address" required>
+                     </div>
+                     <div class="form-row">
+                         <div class="form-group">
+                            <label for="expiration-date">Expiration Date</label>
+                            <input type="text" id="expiration-date" placeholder="MM / YY" required>
+                         </div>
+                         <div class="form-group">
+                            <label for="cvv">CVC</label>
+                            <input type="text" id="cvv" placeholder="123" required>
+                         </div>
+                     </div>
+                      <div class="agreement-group">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I have read and agree to the Policy</label>
+                     </div>
+                     <button type="submit" class="payment-btn">Confirm Payment</button>
+                 </form>
+                 <div id="payment-summary-card">
+                     <h3>YOUR CUSTOM PACKAGE</h3>
+                     <ul id="payment-summary-list"></ul>
+                     <p id="payment-total-cost"></p>
+                 </div>
+             </div>
+        </section>
+
         <section id="about" class="page-section">
             <div class="about-content">
                 <div class="text-content">
                     <h1 class="section-title" style="text-align:left;">Who We Are</h1>
-                    <span class="section-title-underline" style="margin: 0 0 2rem 0;"></span>
+                    <div class="section-title-underline" style="margin: 0 0 3rem 0;"></div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <h2 style="margin-top: 2rem;">Team Introduction</h2>
+                    <h2 style="margin-top: 2rem; font-size: 1.5rem;">Team Introduction</h2>
                     <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
                 </div>
                 <div class="contact-form-container">
-                    <h2 style="text-align: center; color: white;">Contact Us</h2>
+                    <h2 class="section-title" style="text-align:center;">Contact Us</h2>
                     <form>
-                        <div style="margin-bottom: 1rem;"><label for="name">Full Name</label><input type="text" id="name" placeholder="Full Name"></div>
-                        <div style="margin-bottom: 1rem;"><label for="email">Email Address</label><input type="email" id="email" placeholder="Email Address"></div>
-                        <div style="margin-bottom: 1rem;"><label for="message">Tell Us About Your Project</label><textarea id="message" rows="5" placeholder="Leave your message here"></textarea></div>
-                        <button type="submit">SUBMIT</button>
+                        <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" placeholder="John Doe"></div>
+                        <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" placeholder="you@example.com"></div>
+                        <div class="form-group"><label for="message">Tell Us About Your Project</label><textarea id="message" rows="5" placeholder="Leave your message here..."></textarea></div>
+                        <button type="submit">Submit</button>
                     </form>
                 </div>
             </div>
         </section>
-
-        <!-- Login Page Section -->
+        
         <section id="login" class="page-section">
             <div class="auth-container">
                  <h1>Sign In</h1>
                  <form>
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
+                    <div class="form-group"><label for="login-email">Email</label><input type="email" id="login-email"></div>
+                    <div class="form-group"><label for="login-password">Password</label><input type="password" id="login-password"></div>
                     <button type="submit">Sign In</button>
-                    <p>Don't have an account? <a href="#signup" class="nav-link" style="color: var(--primary-color);">Sign Up</a></p>
                  </form>
+                 <p>Don't have an account? <a href="#signup" class="nav-link">Sign Up</a></p>
             </div>
         </section>
         
-        <!-- Sign Up Page Section -->
         <section id="signup" class="page-section">
             <div class="auth-container">
                  <h1>Create Account</h1>
                  <form>
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
+                    <div class="form-group"><label for="signup-email">Email</label><input type="email" id="signup-email"></div>
+                    <div class="form-group"><label for="signup-password">Password</label><input type="password" id="signup-password"></div>
                     <button type="submit">Sign Up</button>
-                    <p>Already have an account? <a href="#login" class="nav-link" style="color: var(--primary-color);">Sign In</a></p>
                  </form>
+                 <p>Already have an account? <a href="#login" class="nav-link accent">Sign In</a></p>
             </div>
         </section>
 
-        <!-- Profile Page Section -->
         <section id="profile" class="page-section">
             <div class="profile-container">
                 <div class="profile-header">
-                    <img src="https://placehold.co/100x100/3b82f6/ffffff?text=U" alt="User Profile" class="profile-pic">
+                    <div class="profile-pic-wrapper">U</div>
                     <div class="profile-info">
                         <h2>Nickname</h2>
                         <button class="edit-profile-btn">Edit Profile</button>
@@ -507,13 +645,22 @@
                     <button class="profile-action-btn">ACCOUNT INFORMATION</button>
                     <button class="profile-action-btn">VIEW MEMBER</button>
                     <button class="profile-action-btn">OTHER HISTORY</button>
-                    <button class="profile-action-btn" style="color: #ef4444;">Log Out</button>
+                    <button class="profile-action-btn logout">Log Out</button>
                 </div>
             </div>
         </section>
     </main>
+    
+    <div id="payment-success-modal" class="modal">
+        <div class="modal-content">
+            <span class="icon"><i class="fas fa-check-circle"></i></span>
+            <h2>Payment Successful!</h2>
+            <p>Your custom package has been confirmed. A confirmation email has been sent to you.</p>
+            <a href="#home" class="payment-btn" style="margin-top: 1rem; display:inline-block; width: auto; padding: 0.75rem 1.5rem;">Back to Home</a>
+        </div>
+    </div>
 
-    <!-- Footer -->
+
     <footer class="footer">
         <div class="container footer-content">
             <div class="social-icons">
@@ -528,39 +675,206 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // --- General Navigation ---
             const sections = document.querySelectorAll('.page-section');
             const navLinks = document.querySelectorAll('.nav-link');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
 
+            // --- Custom Package State ---
+            let customPackage = {
+                items: [],
+                total: 0
+            };
+
+            // --- Services Page Sub-Navigation Elements ---
+            const serviceNavBtns = document.querySelectorAll('.service-nav-btn');
+            const serviceContents = document.querySelectorAll('.service-content');
+            
+            // --- Slider Initialization ---
+            function initializeSlider(sliderElement) {
+                let slideIndex = 0;
+                const slides = sliderElement.querySelectorAll('.slide');
+                if (slides.length === 0) return;
+
+                const sliderId = sliderElement.dataset.sliderId;
+                const dotsContainer = document.querySelector(`.dots-container[data-dots-for="${sliderId}"]`);
+                if(!dotsContainer) return;
+
+                dotsContainer.innerHTML = '';
+
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot');
+                    dot.dataset.slide = i;
+                    dotsContainer.appendChild(dot);
+                });
+
+                const dots = dotsContainer.querySelectorAll('.dot');
+                const prevBtn = sliderElement.querySelector('.prev');
+                const nextBtn = sliderElement.querySelector('.next');
+
+                function showSlide(n) {
+                    slideIndex = (n + slides.length) % slides.length;
+                    slides.forEach(slide => slide.style.display = 'none');
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    slides[slideIndex].style.display = 'block';
+                    dots[slideIndex].classList.add('active');
+                }
+
+                if (prevBtn && nextBtn) {
+                    prevBtn.addEventListener('click', () => showSlide(slideIndex - 1));
+                    nextBtn.addEventListener('click', () => showSlide(slideIndex + 1));
+                }
+                
+                dots.forEach(dot => {
+                    dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.slide)));
+                });
+                
+                showSlide(0);
+            }
+            
+            document.querySelectorAll('.slider').forEach(initializeSlider);
+
+            // --- Custom Package Builder Logic ---
+            const optionCards = document.querySelectorAll('.custom-option-card');
+            
+            function updateCustomPackageSummary() {
+                customPackage.items = [];
+                customPackage.total = 0;
+                
+                const selectedCards = document.querySelectorAll('.custom-option-card.selected');
+
+                selectedCards.forEach(card => {
+                    const name = card.dataset.name;
+                    const price = parseFloat(card.dataset.price);
+                    customPackage.items.push({ name, price });
+                    customPackage.total += price;
+                });
+            }
+
+            optionCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const parentGroup = card.closest('.custom-package-option-group');
+                    const selectionType = parentGroup.dataset.selectionType;
+                    const checkbox = card.querySelector('input[type="checkbox"]');
+
+                    if (selectionType === 'single') {
+                        // Deselect all cards in the group first
+                        parentGroup.querySelectorAll('.custom-option-card').forEach(c => {
+                            if (c !== card) {
+                                c.classList.remove('selected');
+                                c.querySelector('input[type="checkbox"]').checked = false;
+                            }
+                        });
+                    }
+                    
+                    // Toggle the clicked card
+                    card.classList.toggle('selected');
+                    checkbox.checked = card.classList.contains('selected');
+
+                    updateCustomPackageSummary();
+                });
+            });
+
+
+            // --- Payment Page Logic ---
+            function populatePaymentPage() {
+                const paymentSummaryList = document.getElementById('payment-summary-list');
+                const paymentTotalCostEl = document.getElementById('payment-total-cost');
+                
+                if (!paymentSummaryList || !paymentTotalCostEl) return;
+
+                paymentSummaryList.innerHTML = '';
+                
+                if (customPackage.items.length === 0) {
+                     paymentSummaryList.innerHTML = '<li>No items selected. Please go back and build your package.</li>';
+                } else {
+                    customPackage.items.forEach(item => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                        paymentSummaryList.appendChild(listItem);
+                    });
+                }
+                paymentTotalCostEl.textContent = `TOTAL COST: $${customPackage.total.toFixed(2)}`;
+            }
+            
+            // --- Payment Form Submission ---
+            const paymentForm = document.getElementById('card-payment-form');
+            const successModal = document.getElementById('payment-success-modal');
+
+            if(paymentForm) {
+                paymentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    if(successModal) successModal.style.display = 'block';
+                });
+            }
+            if(successModal) {
+                successModal.addEventListener('click', function(e) {
+                    if(e.target.classList.contains('modal') || e.target.closest('a[href="#home"]')) {
+                         successModal.style.display = 'none';
+                         window.location.hash = '#home'; // Go to home after closing modal
+                    }
+                });
+            }
+
+            // --- Main Page Navigation Logic ---
+            function activateServiceTab(tabId) {
+                if (!tabId) return;
+                
+                serviceNavBtns.forEach(btn => btn.classList.remove('active'));
+                serviceContents.forEach(content => content.classList.remove('active'));
+
+                const targetBtn = document.querySelector(`.service-nav-btn[data-target="${tabId}"]`);
+                const targetContent = document.getElementById(tabId);
+
+                if (targetBtn) targetBtn.classList.add('active');
+                if (targetContent) targetContent.classList.add('active');
+            }
+
             function showSection() {
-                const hash = window.location.hash || '#home';
-                const targetId = hash.substring(1);
+                const fullHash = window.location.hash || '#home';
+                let [hash, params] = fullHash.split('&');
+                if (!hash.startsWith('#')) {
+                    hash = '#home';
+                }
+
+                const targetId = hash.substring(1) || 'home';
                 
                 sections.forEach(section => section.classList.remove('active'));
                 const targetSection = document.getElementById(targetId);
                 if (targetSection) {
                     targetSection.classList.add('active');
+                    // WHEN a user navigates to the payment page, update the summary
+                    if(targetId === 'payment') {
+                        populatePaymentPage();
+                    }
                 } else {
                     document.getElementById('home').classList.add('active');
                 }
                 
                 navLinks.forEach(link => {
-                    // Handle main nav active state
-                    const linkHash = new URL(link.href).hash;
-                    if (linkHash === hash || (hash === '#signup' && linkHash === '#login')) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
+                    const linkHash = new URL(link.href).hash.split('&')[0];
+                    link.classList.toggle('active', linkHash === hash);
                 });
                 
+                if (targetId === 'services') {
+                    let tabToActivate = null;
+                    if (params) {
+                        const urlParams = new URLSearchParams(params);
+                        tabToActivate = urlParams.get('tab');
+                    }
+                    if (!tabToActivate || !document.querySelector(`.service-nav-btn[data-target="${tabToActivate}"]`)) {
+                        tabToActivate = serviceNavBtns.length > 0 ? serviceNavBtns[0].dataset.target : null;
+                    }
+                    activateServiceTab(tabToActivate);
+                }
+                
                 mobileMenu.style.display = 'none';
-                window.scrollTo(0, 0); // Scroll to top on page change
+                if(targetId !== 'custom-package') {
+                    window.scrollTo(0, 0);
+                }
             }
 
             window.addEventListener('hashchange', showSection);
@@ -570,54 +884,25 @@
                 const isMenuOpen = mobileMenu.style.display === 'flex';
                 mobileMenu.style.display = isMenuOpen ? 'none' : 'flex';
             });
-
-            // --- Services Page Sub-Navigation ---
-            const serviceNavBtns = document.querySelectorAll('.service-nav-btn');
-            const serviceContents = document.querySelectorAll('.service-content');
             
             serviceNavBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
                     const targetId = btn.dataset.target;
-                    
-                    serviceNavBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    
-                    serviceContents.forEach(content => {
-                        content.classList.remove('active');
-                        if(content.id === targetId) {
-                            content.classList.add('active');
-                        }
-                    });
+                    history.pushState(null, '', `#services&tab=${targetId}`);
+                    activateServiceTab(targetId);
                 });
             });
 
-            // --- Image Slider (on Services Page) ---
-            const slider = document.querySelector('.slider');
-            if (slider) {
-                let slideIndex = 0;
-                const slides = slider.querySelectorAll('.slide');
-                const dots = slider.nextElementSibling.querySelectorAll('.dot');
-                const prevBtn = slider.querySelector('.prev');
-                const nextBtn = slider.querySelector('.next');
-
-                function showSlide(n) {
-                    slideIndex = (n + slides.length) % slides.length;
-                    
-                    slides.forEach(slide => slide.style.display = 'none');
-                    dots.forEach(dot => dot.classList.remove('active'));
-                    
-                    slides[slideIndex].style.display = 'block';
-                    dots[slideIndex].classList.add('active');
-                }
-
-                prevBtn.addEventListener('click', () => showSlide(slideIndex - 1));
-                nextBtn.addEventListener('click', () => showSlide(slideIndex + 1));
-                dots.forEach(dot => {
-                    dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.slide)));
+            document.querySelectorAll('a.nav-link').forEach(link => {
+                 link.addEventListener('click', function(e) {
+                    const targetHash = new URL(this.href).hash;
+                    if (targetHash.startsWith('#')) {
+                         e.preventDefault();
+                         window.location.hash = targetHash;
+                    }
                 });
-                
-                showSlide(slideIndex); // Initial display
-            }
+            });
         });
     </script>
 

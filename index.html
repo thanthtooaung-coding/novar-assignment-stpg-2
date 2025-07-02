@@ -622,6 +622,68 @@
              margin-left: 0.5rem;
         }
 
+        .package-summary-bar {
+            position: sticky;
+            bottom: 1rem;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background-color: var(--white-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 900;
+            margin-top: 4rem;
+        }
+
+        .summary-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .summary-item-count {
+            font-weight: 600;
+        }
+
+        .summary-item-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .item-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .item-pill .remove-pill {
+            cursor: pointer;
+            font-style: normal;
+            font-weight: bold;
+            margin-left: 0.5rem;
+            line-height: 1;
+        }
+        .item-pill .remove-pill:hover {
+            opacity: 0.8;
+        }
+
+        .summary-total {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
         /* Responsive Design */
         @media (max-width: 1200px) {
             .custom-package-grid { grid-template-columns: repeat(3, 1fr); }
@@ -1062,6 +1124,31 @@
                     </div>
                 </div>
             </div>
+
+            <div class="custom-package-option-group">
+                <h3>Choose Your Place Settings</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="Simple Place Setting" data-price="10"><img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Simple Place Setting"><label class="option-label"><div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Simple</p></div><span class="option-price">$10</span></label></div>
+                    <div class="custom-option-card" data-name="Themed Place Setting" data-price="18"><img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Themed Place Setting"><label class="option-label"><div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Themed</p></div><span class="option-price">$18</span></label></div>
+                </div>
+            </div>
+
+            <div class="custom-package-option-group">
+                <h3>Choose Your Tablecloths</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="Linen Tablecloth" data-price="40"><img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Linen Tablecloth"><label class="option-label"><div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Linen</p></div><span class="option-price">$40</span></label></div>
+                    <div class="custom-option-card" data-name="Patterned Tablecloth" data-price="35"><img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Patterned Tablecloth"><label class="option-label"><div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Patterned</p></div><span class="option-price">$35</span></label></div>
+                </div>
+            </div>
+
+            <div class="package-summary-bar" id="party-summary-bar">
+                <div class="summary-details">
+                    <div class="summary-item-count">Selected Items: <span class="item-count">0</span></div>
+                    <div class="summary-item-pills">
+                        </div>
+                </div>
+                <div class="summary-total">Total: <span class="total-cost">$0.00</span></div>
+            </div>
             
             <div class="payment-btn-container">
                 <a href="#payment" class="payment-btn nav-link" style="display: inline-block; width: auto; padding: 0.75rem 2rem;">Finalize & Proceed</a>
@@ -1111,6 +1198,30 @@
                         </label>
                     </div>
                 </div>
+            </div>
+
+            <div class="custom-package-option-group">
+                <h3>Choose Your Gym Wear</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="Tank Top" data-price="25"><img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Tank Top"><label class="option-label"><div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Tank Top</p></div><span class="option-price">$25</span></label></div>
+                    <div class="custom-option-card" data-name="Athletic Shorts" data-price="30"><img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Athletic Shorts"><label class="option-label"><div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Shorts</p></div><span class="option-price">$30</span></label></div>
+                </div>
+            </div>
+
+            <div class="custom-package-option-group">
+                <h3>Choose Your Beanie Hats</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="Cuffed Beanie" data-price="20"><img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Cuffed Beanie"><label class="option-label"><div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Cuffed</p></div><span class="option-price">$20</span></label></div>
+                    <div class="custom-option-card" data-name="Slouchy Beanie" data-price="22"><img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Slouchy Beanie"><label class="option-label"><div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Slouchy</p></div><span class="option-price">$22</span></label></div>
+                </div>
+            </div>
+
+            <div class="package-summary-bar" id="clothing-summary-bar">
+                <div class="summary-details">
+                    <div class="summary-item-count">Selected Items: <span class="item-count">0</span></div>
+                    <div class="summary-item-pills"></div>
+                </div>
+                <div class="summary-total">Total: <span class="total-cost">$0.00</span></div>
             </div>
 
             <div class="payment-btn-container">
@@ -1170,6 +1281,30 @@
                 </div>
             </div>
 
+            <div class="custom-package-option-group">
+                <h3>Choose Your Advertising Boards</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="Foam Board" data-price="55"><img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Foam Board"><label class="option-label"><div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Foam Board</p></div><span class="option-price">$55</span></label></div>
+                    <div class="custom-option-card" data-name="A-Frame Sign" data-price="75"><img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="A-Frame Sign"><label class="option-label"><div class="option-name-wrapper"><input type="checkbox"><p class="option-name">A-Frame Sign</p></div><span class="option-price">$75</span></label></div>
+                </div>
+            </div>
+
+            <div class="custom-package-option-group">
+                <h3>Choose Your Desk Accessories</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="Pen Holder" data-price="10"><img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Pen Holder"><label class="option-label"><div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Pen Holder</p></div><span class="option-price">$10</span></label></div>
+                    <div class="custom-option-card" data-name="Mouse Pad" data-price="15"><img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Mouse Pad"><label class="option-label"><div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Mouse Pad</p></div><span class="option-price">$15</span></label></div>
+                </div>
+            </div>
+
+            <div class="package-summary-bar" id="office-summary-bar">
+                <div class="summary-details">
+                    <div class="summary-item-count">Selected Items: <span class="item-count">0</span></div>
+                    <div class="summary-item-pills"></div>
+                </div>
+                <div class="summary-total">Total: <span class="total-cost">$0.00</span></div>
+            </div>
+
             <div class="payment-btn-container">
                 <a href="#payment" class="payment-btn nav-link" style="display: inline-block; width: auto; padding: 0.75rem 2rem;">Finalize & Proceed</a>
             </div>
@@ -1217,6 +1352,13 @@
                     <div class="custom-option-card" data-name="Menus" data-price="30"><img src="https://images.unsplash.com/photo-1563188383-75276368297f?w=400&h=180&fit=crop" alt="Menus"><label class="option-label"><input type="checkbox"><p>Menus</p></label></div>
                     <div class="custom-option-card" data-name="Thank You Cards" data-price="40"><img src="https://images.unsplash.com/photo-1549465220-1a8a9238cd48?w=400&h=180&fit=crop" alt="Thank You Cards"><label class="option-label"><input type="checkbox"><p>Thank You Cards</p></label></div>
                 </div>
+            </div>
+            <div class="package-summary-bar" id="custom-summary-bar">
+                <div class="summary-details">
+                    <div class="summary-item-count">Selected Items: <span class="item-count">0</span></div>
+                    <div class="summary-item-pills"></div>
+                </div>
+                <div class="summary-total">Total: <span class="total-cost">$0.00</span></div>
             </div>
             <div class="payment-btn-container">
                 <a href="#payment" id="proceed-to-payment" class="payment-btn nav-link" style="display: inline-block; width: auto; padding: 0.75rem 2rem;">Proceed to Payment</a>
@@ -1375,8 +1517,8 @@
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
 
-            // --- Custom Package State ---
-            let customPackage = {
+            // --- Global state for the selected package ---
+            let finalPackage = {
                 items: [],
                 total: 0
             };
@@ -1426,31 +1568,57 @@
             
             document.querySelectorAll('.slider').forEach(initializeSlider);
 
-            // --- Custom Package Builder Logic ---
-            const optionCards = document.querySelectorAll('.custom-option-card');
-            
-            function updateCustomPackageSummary() {
-                customPackage.items = [];
-                customPackage.total = 0;
+            // --- Update the summary bar on package detail pages ---
+            function renderPackageSummary(activeSection) {
+                const summaryBar = activeSection.querySelector('.package-summary-bar');
+                if (!summaryBar) return;
+
+                const selectedCards = activeSection.querySelectorAll('.custom-option-card.selected');
+                const itemCountEl = summaryBar.querySelector('.item-count');
+                const itemPillsEl = summaryBar.querySelector('.summary-item-pills');
+                const totalCostEl = summaryBar.querySelector('.total-cost');
                 
-                const selectedCards = document.querySelectorAll('.custom-option-card.selected');
+                let totalCost = 0;
+                itemPillsEl.innerHTML = ''; 
+
+                finalPackage.items = []; // Reset the final package when rendering a summary
 
                 selectedCards.forEach(card => {
                     const name = card.dataset.name;
                     const price = parseFloat(card.dataset.price);
-                    customPackage.items.push({ name, price });
-                    customPackage.total += price;
+                    
+                    if(!isNaN(price)) {
+                        totalCost += price;
+                        // Add to our final package list
+                        finalPackage.items.push({ name, price });
+
+                        const pill = document.createElement('div');
+                        pill.className = 'item-pill';
+                        pill.dataset.name = name;
+                        pill.innerHTML = `<span>${name} ($${price.toFixed(2)})</span><i class="remove-pill" title="Remove item">&times;</i>`;
+                        itemPillsEl.appendChild(pill);
+                    }
                 });
+
+                finalPackage.total = totalCost; // Update the final total
+                itemCountEl.textContent = selectedCards.length;
+                totalCostEl.textContent = `$${totalCost.toFixed(2)}`;
             }
 
+            // --- Logic for all selectable option cards ---
+            const optionCards = document.querySelectorAll('.custom-option-card');
+            
             optionCards.forEach(card => {
-                card.addEventListener('click', () => {
-                    const parentGroup = card.closest('.custom-package-option-group');
-                    const selectionType = parentGroup.dataset.selectionType;
+                card.addEventListener('click', (e) => {
                     const checkbox = card.querySelector('input[type="checkbox"]');
+                    if (e.target.tagName !== 'INPUT') {
+                        if (checkbox) checkbox.checked = !checkbox.checked;
+                    }
+                    
+                    card.classList.toggle('selected', checkbox.checked);
 
-                    if (selectionType === 'single') {
-                        // Deselect all cards in the group first
+                    const parentGroup = card.closest('.custom-package-option-group');
+                    if (parentGroup && parentGroup.dataset.selectionType === 'single' && checkbox.checked) {
                         parentGroup.querySelectorAll('.custom-option-card').forEach(c => {
                             if (c !== card) {
                                 c.classList.remove('selected');
@@ -1459,14 +1627,28 @@
                         });
                     }
                     
-                    // Toggle the clicked card
-                    card.classList.toggle('selected');
-                    checkbox.checked = card.classList.contains('selected');
-
-                    updateCustomPackageSummary();
+                    const activeSection = card.closest('.page-section');
+                    if (activeSection && activeSection.querySelector('.package-summary-bar')) {
+                        renderPackageSummary(activeSection);
+                    }
                 });
             });
+            
+            // --- Handle removing items by clicking the 'x' on a pill ---
+            document.body.addEventListener('click', function(e) {
+                if (e.target.classList.contains('remove-pill')) {
+                    const pill = e.target.closest('.item-pill');
+                    const nameToRemove = pill.dataset.name;
+                    const activeSection = pill.closest('.page-section');
 
+                    const cardToDeselect = activeSection.querySelector(`.custom-option-card[data-name="${nameToRemove}"]`);
+                    if (cardToDeselect) {
+                        cardToDeselect.classList.remove('selected');
+                        cardToDeselect.querySelector('input[type="checkbox"]').checked = false;
+                        renderPackageSummary(activeSection);
+                    }
+                }
+            });
 
             // --- Payment Page Logic ---
             function populatePaymentPage() {
@@ -1477,16 +1659,17 @@
 
                 paymentSummaryList.innerHTML = '';
                 
-                if (customPackage.items.length === 0) {
+                if (finalPackage.items.length === 0) {
                      paymentSummaryList.innerHTML = '<li>No items selected. Please go back and build your package.</li>';
+                     paymentTotalCostEl.textContent = 'TOTAL COST: $0.00';
                 } else {
-                    customPackage.items.forEach(item => {
+                    finalPackage.items.forEach(item => {
                         const listItem = document.createElement('li');
                         listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
                         paymentSummaryList.appendChild(listItem);
                     });
+                     paymentTotalCostEl.textContent = `TOTAL COST: $${finalPackage.total.toFixed(2)}`;
                 }
-                paymentTotalCostEl.textContent = `TOTAL COST: $${customPackage.total.toFixed(2)}`;
             }
             
             // --- Payment Form Submission ---
@@ -1503,7 +1686,7 @@
                 successModal.addEventListener('click', function(e) {
                     if(e.target.classList.contains('modal') || e.target.closest('a[href="#home"]')) {
                          successModal.style.display = 'none';
-                         window.location.hash = '#home'; // Go to home after closing modal
+                         window.location.hash = '#home';
                     }
                 });
             }
@@ -1511,38 +1694,36 @@
             // --- Main Page Navigation Logic ---
             function showSection() {
                 const fullHash = window.location.hash || '#home';
-                let [hash, params] = fullHash.split('&');
-                if (!hash.startsWith('#')) {
-                    hash = '#home';
-                }
-
-                const targetId = hash.substring(1) || 'home';
+                const targetId = fullHash.substring(1).split('&')[0] || 'home';
                 
                 sections.forEach(section => section.classList.remove('active'));
                 const targetSection = document.getElementById(targetId);
+                
                 if (targetSection) {
                     targetSection.classList.add('active');
-                    // WHEN a user navigates to the payment page, update the summary
-                    if(targetId === 'payment') {
-                        populatePaymentPage();
+                    
+                    if (targetId === 'payment') {
+                        // This uses the 'finalPackage' object which was updated on the previous page
+                        populatePaymentPage(); 
                     }
-                     // Re-initialize sliders if they are in the newly activated section
+                    if (targetSection.querySelector('.package-summary-bar')) {
+                        renderPackageSummary(targetSection);
+                    }
                     if (targetSection.querySelectorAll('.slider').length > 0) {
                         targetSection.querySelectorAll('.slider').forEach(initializeSlider);
                     }
                 } else {
+                    // Fallback to home if the hash is invalid
                     document.getElementById('home').classList.add('active');
                 }
                 
                 navLinks.forEach(link => {
                     const linkHash = new URL(link.href).hash.split('&')[0];
-                    link.classList.toggle('active', linkHash === hash);
+                    link.classList.toggle('active', linkHash === `#${targetId}`);
                 });
                 
                 mobileMenu.style.display = 'none';
-                if(targetId !== 'custom-package') {
-                    window.scrollTo(0, 0);
-                }
+                window.scrollTo(0, 0);
             }
 
             window.addEventListener('hashchange', showSection);
@@ -1556,14 +1737,11 @@
             document.querySelectorAll('a.nav-link').forEach(link => {
                  link.addEventListener('click', function(e) {
                     const targetHash = new URL(this.href).hash;
-                    // Ensure we only prevent default for hash links, allowing external links to work
                     if (targetHash.startsWith('#')) {
                          e.preventDefault();
-                         // Only change the hash if it's different to prevent unnecessary reloads/jumps
                          if(window.location.hash !== targetHash) {
                             window.location.hash = targetHash;
                          } else {
-                            // If hash is the same, just scroll to top (useful for re-clicking a link)
                             window.scrollTo(0, 0);
                          }
                     }
@@ -1571,6 +1749,5 @@
             });
         });
     </script>
-
 </body>
 </html>

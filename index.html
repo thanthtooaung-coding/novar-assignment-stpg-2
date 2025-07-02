@@ -156,9 +156,24 @@
         .custom-option-card .option-label {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
+            justify-content: space-between;
             padding: 1rem;
+            width: 100%;
+        }
+
+        .option-name-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .option-name {
+            margin: 0; 
+        }
+
+        .option-price {
+            font-weight: 600;
+            color: var(--primary-color);
         }
         .custom-option-card input[type="checkbox"] {
             width: 18px;
@@ -329,6 +344,29 @@
         .package-card-link:hover {
             text-decoration: none;
             color: #4338ca;
+        }
+
+        /* Package Detail Page Styles */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .back-link i {
+            margin-right: 0.5rem;
+        }
+
+        .package-description {
+            text-align: center;
+            max-width: 700px;
+            margin: -2rem auto 4rem auto;
+            color: var(--light-text-color);
+            line-height: 1.8;
         }
 
         /* Login & Signup Pages */
@@ -908,7 +946,7 @@
                             <li>Place settings</li>
                             <li>Tablecloths</li>
                         </ul>
-                        <a href="#custom-package" class="package-card-link nav-link">Party Package</a>
+                        <a href="#party-package-detail" class="package-card-link nav-link">Party Package</a>
                     </div>
                 </div>
 
@@ -924,7 +962,7 @@
                             <li>Gym wear</li>
                             <li>Beanie hats</li>
                         </ul>
-                        <a href="#custom-package" class="package-card-link nav-link">Clothing Package</a>
+                        <a href="#clothing-package-detail" class="package-card-link nav-link">Clothing Package</a>
                     </div>
                 </div>
 
@@ -940,7 +978,7 @@
                             <li>Notepads</li>
                             <li>Storage</li>
                         </ul>
-                        <a href="#custom-package" class="package-card-link nav-link">Office Package</a>
+                        <a href="#office-package-detail" class="package-card-link nav-link">Office Package</a>
                     </div>
                 </div>
             </div>
@@ -949,6 +987,191 @@
                 <h2>Create Your Own Package</h2>
                 <p class="section-subtitle" style="margin: 1rem auto;">Don't see a package that fits? Build your own from scratch!</p>
                 <a href="#custom-package" class="quote-btn nav-link">Get a Quote</a>
+            </div>
+        </section>
+
+        <section id="party-package-detail" class="page-section">
+            <a href="#packages" class="back-link nav-link"><i class="fas fa-arrow-left"></i> Back to Packages</a>
+            <h1 class="section-title">Party Package</h1>
+            <p class="package-description">Select your preferred styles for each item. This curated collection ensures your event has a cohesive and professional look that will impress your guests.</p>
+
+            <div class="custom-package-option-group">
+                <h3>Choose Your Menu Style</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="Modern Menu" data-price="25">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Modern Menu">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Modern</p></div>
+                            <span class="option-price">$25</span>
+                        </label>
+                    </div>
+                    <div class="custom-option-card" data-name="Elegant Menu" data-price="30">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Elegant Menu">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Elegant</p></div>
+                            <span class="option-price">$30</span>
+                        </label>
+                    </div>
+                    <div class="custom-option-card" data-name="Minimalist Menu" data-price="22">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Minimalist Menu">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Minimalist</p></div>
+                            <span class="option-price">$22</span>
+                        </label>
+                    </div>
+                    <div class="custom-option-card" data-name="Fun Menu" data-price="28">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Fun Menu">
+                        <label class="option-label">
+                             <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Fun & Colorful</p></div>
+                            <span class="option-price">$28</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="custom-package-option-group">
+                <h3>Choose Your Napkin Design</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="Linen Napkins" data-price="20">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Linen Napkins">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Linen Finish</p></div>
+                            <span class="option-price">$20</span>
+                        </label>
+                    </div>
+                    <div class="custom-option-card" data-name="Patterned Napkins" data-price="18">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Patterned Napkins">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Patterned</p></div>
+                            <span class="option-price">$18</span>
+                        </label>
+                    </div>
+                    <div class="custom-option-card" data-name="Monogrammed Napkins" data-price="25">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Monogrammed Napkins">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Monogrammed</p></div>
+                            <span class="option-price">$25</span>
+                        </label>
+                    </div>
+                    <div class="custom-option-card" data-name="Colored Napkins" data-price="15">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Colored Napkins">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Solid Color</p></div>
+                            <span class="option-price">$15</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="payment-btn-container">
+                <a href="#payment" class="payment-btn nav-link" style="display: inline-block; width: auto; padding: 0.75rem 2rem;">Finalize & Proceed</a>
+            </div>
+        </section>
+
+        <section id="clothing-package-detail" class="page-section">
+            <a href="#packages" class="back-link nav-link"><i class="fas fa-arrow-left"></i> Back to Packages</a>
+            <h1 class="section-title">Clothing Package</h1>
+            <p class="package-description">Build your custom apparel collection. Select from our range of high-quality items, perfect for your team, event, or merchandise line.</p>
+
+             <div class="custom-package-option-group">
+                <h3>Choose Your Hoodies</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="Pullover Hoodie" data-price="45">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Pullover Hoodie">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Pullover</p></div>
+                            <span class="option-price">$45</span>
+                        </label>
+                    </div>
+                    <div class="custom-option-card" data-name="Zip-Up Hoodie" data-price="50">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Zip-Up Hoodie">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Zip-Up</p></div>
+                            <span class="option-price">$50</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+             <div class="custom-package-option-group">
+                <h3>Choose Your Sweatshirts</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="Crewneck Sweatshirt" data-price="35">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Crewneck Sweatshirt">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Crewneck</p></div>
+                            <span class="option-price">$35</span>
+                        </label>
+                    </div>
+                    <div class="custom-option-card" data-name="Heavyweight Sweatshirt" data-price="40">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Heavyweight Sweatshirt">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Heavyweight</p></div>
+                            <span class="option-price">$40</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-btn-container">
+                <a href="#payment" class="payment-btn nav-link" style="display: inline-block; width: auto; padding: 0.75rem 2rem;">Finalize & Proceed</a>
+            </div>
+        </section>
+
+        <section id="office-package-detail" class="page-section">
+            <a href="#packages" class="back-link nav-link"><i class="fas fa-arrow-left"></i> Back to Packages</a>
+            <h1 class="section-title">Office Package</h1>
+            <p class="package-description">Outfit your entire workspace with professionally branded materials. Select the items you need to enhance productivity and brand presence.</p>
+
+             <div class="custom-package-option-group">
+                <h3>Choose Your Diaries & Notepads</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="Hardcover Diary" data-price="25">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Hardcover Diary">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Hardcover Diary</p></div>
+                            <span class="option-price">$25</span>
+                        </label>
+                    </div>
+                    <div class="custom-option-card" data-name="Spiral Notepad" data-price="15">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Spiral Notepad">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Spiral Notepad</p></div>
+                            <span class="option-price">$15</span>
+                        </label>
+                    </div>
+                    <div class="custom-option-card" data-name="Legal Pad" data-price="12">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Legal Pad">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Legal Pad</p></div>
+                            <span class="option-price">$12</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+             <div class="custom-package-option-group">
+                <h3>Choose Your Storage Solutions</h3>
+                <div class="custom-package-grid">
+                    <div class="custom-option-card" data-name="Document Box" data-price="18">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Document Box">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Document Box</p></div>
+                            <span class="option-price">$18</span>
+                        </label>
+                    </div>
+                    <div class="custom-option-card" data-name="Magazine File" data-price="15">
+                        <img src="https://i.pinimg.com/736x/48/06/7f/48067f233fdfc65f3c73dd166af75e39.jpg?w=400&h=180&fit=crop" alt="Magazine File">
+                        <label class="option-label">
+                            <div class="option-name-wrapper"><input type="checkbox"><p class="option-name">Magazine File</p></div>
+                            <span class="option-price">$15</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-btn-container">
+                <a href="#payment" class="payment-btn nav-link" style="display: inline-block; width: auto; padding: 0.75rem 2rem;">Finalize & Proceed</a>
             </div>
         </section>
         

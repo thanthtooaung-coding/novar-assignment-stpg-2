@@ -106,14 +106,6 @@
         .home-service-card .learn-more-btn { color: var(--primary-color); text-decoration: none; font-weight: 600; }
         .learn-more-btn i { transition: transform 0.3s ease; display: inline-block; }
         .learn-more-btn:hover i { transform: translateX(5px); }
-
-        /* Services Page */
-        .services-nav { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
-        .service-nav-btn { background: var(--white-color); border: 1px solid var(--border-color); padding: 0.75rem 1.5rem; border-radius: var(--border-radius); cursor: pointer; font-weight: 500; transition: all 0.3s ease; }
-        .service-nav-btn:hover { background-color: var(--secondary-color); }
-        .service-nav-btn.active { background-color: var(--primary-color); color: var(--white-color); border-color: var(--primary-color); }
-        .service-content { display: none; }
-        .service-content.active { display: block; }
         
         /* Image Slider */
         .slider { position: relative; max-width: 900px; margin: 2rem auto; }
@@ -128,7 +120,7 @@
         .dot.active { background-color: var(--primary-color); }
         
         /* Products Offered Grid */
-        .product-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
         .product-card { background: var(--white-color); border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 4px 12px var(--shadow-color); transition: transform 0.3s ease; }
         .product-card:hover { transform: translateY(-5px); }
         .product-card .product-image { height: 180px; width: 100%; object-fit: cover; }
@@ -247,6 +239,98 @@
         .contact-form-container input, .contact-form-container textarea { width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 0.5rem; }
         .contact-form-container button { width: 100%; padding: 1rem; border: none; background-color: var(--primary-color); color: white; font-weight: 600; border-radius: var(--border-radius); cursor: pointer; }
 
+        /* Packages Page */
+        .packages-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem; 
+        }
+
+        .package-card { 
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius); 
+            overflow: hidden;
+            display: flex; 
+            flex-direction: column; 
+            background-color: var(--white-color);
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .package-card-header {
+            padding: 2.5rem 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Background colors for each card */
+        .package-card-header.party-bg { background-color: #fecaca; }
+        .package-card-header.clothing-bg { background-color: #a5f3fc; }
+        .package-card-header.office-bg { background-color: #e5e7eb; }
+
+        .package-card-title-large {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-color);
+            line-height: 1.1;
+        }
+
+        .package-card-content {
+            padding: 2rem;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .package-card-content h3 {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .package-card-content ul {
+            list-style-type: none;
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .package-card-content ul li {
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .package-card-content ul li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: -1rem;
+            font-size: 1.25rem;
+        }
+
+        .package-card-link {
+            display: block;
+            text-align: center;
+            color: var(--primary-color);
+            text-decoration: underline;
+            font-weight: 600;
+            margin-top: auto;
+        }
+        .package-card-link:hover {
+            text-decoration: none;
+            color: #4338ca;
+        }
+
         /* Login & Signup Pages */
         .auth-container { max-width: 450px; margin: 3rem auto; background: var(--white-color); padding: 3rem; border-radius: var(--border-radius); box-shadow: 0 4px 20px var(--shadow-color); text-align: center; }
         .auth-container h1 { margin-bottom: 2rem; }
@@ -275,6 +359,230 @@
         .social-icons a:hover { color: var(--primary-color); }
         .footer-links a { margin: 0 0.75rem; text-decoration: none; color: var(--light-text-color); transition: color 0.3s ease; }
         .footer-links a:hover { color: var(--primary-color); }
+
+
+        /* Services & Product Overview Page === */
+        .services-overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-overview-card {
+            background-color: var(--white-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .service-overview-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border-radius: 0.25rem; 
+        }
+
+        .service-overview-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .service-overview-card p {
+            color: var(--light-text-color);
+            margin-bottom: 1.5rem;
+            flex-grow: 1; /* Makes cards in a row have the same height */
+        }
+
+        .service-overview-card .learn-more-btn {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+        .service-overview-card .learn-more-btn:hover {
+            background-color: #4338ca;
+            color: var(--white-color);
+        }
+        
+        /* Product Offered Section */
+        .product-offered-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .product-offered-card {
+            background: var(--white-color);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-offered-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .product-offered-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .product-offered-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-offered-body h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            text-transform: capitalize;
+        }
+
+        .product-offered-body p {
+            color: var(--light-text-color);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .product-offered-body .learn-more-btn {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            border: none;
+            margin-top: auto;
+        }
+
+        .product-offered-body .learn-more-btn:hover {
+            background-color: #4338ca; 
+            color: var(--white-color);
+        }
+
+        .product-intro-text {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+            color: var(--light-text-color);
+        }
+
+        .product-gallery-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .product-gallery-item {
+            background: var(--white-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+        
+        .product-gallery-item.full-width {
+            grid-column: 1 / -1; /* Makes this item span the full width */
+        }
+
+        .product-gallery-item h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: capitalize;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+            opacity: 0.85;
+        }
+
+        .view-packages-button-container {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .view-packages-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background-color: #cffafe; /* Light cyan color from example */
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-color);
+            min-width: 450px;
+            border: 1px solid #67e8f9;
+            transition: all 0.3s ease;
+        }
+        
+        .view-packages-btn:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-color: #22d3ee;
+            color: var(--text-color);
+        }
+
+        .view-packages-btn .inner-btn {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-left: 1rem;
+        }
+
+        .view-packages-btn .inner-btn i {
+             margin-left: 0.5rem;
+        }
 
         /* Responsive Design */
         @media (max-width: 1200px) {
@@ -339,25 +647,25 @@
                     <div class="icon"><i class="fas fa-palette"></i></div>
                     <h3>Logo Design</h3>
                     <p>Create memorable brand identities with our professional logo design services.</p>
-                    <a href="#services&tab=logo-designs" class="learn-more-btn nav-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="#logo-design-detail" class="learn-more-btn nav-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
                  <div class="home-service-card">
                     <div class="icon"><i class="fas fa-bullhorn"></i></div>
                     <h3>Marketing Materials</h3>
                     <p>Boost your marketing efforts with eye-catching brochures, flyers, and banners.</p>
-                    <a href="#services&tab=marketing-materials" class="learn-more-btn nav-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="#marketing-detail" class="learn-more-btn nav-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
                  <div class="home-service-card">
                     <div class="icon"><i class="fas fa-recycle"></i></div>
                     <h3>Eco-Friendly Printing</h3>
                     <p>Sustainable printing solutions using recycled materials and eco-friendly inks.</p>
-                    <a href="#services&tab=eco-friendly" class="learn-more-btn nav-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="#eco-friendly-detail" class="learn-more-btn nav-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
                  <div class="home-service-card">
                     <div class="icon"><i class="fas fa-truck-fast"></i></div>
                     <h3>Global Shipping</h3>
                     <p>Fast and reliable worldwide shipping to get your prints delivered anywhere.</p>
-                    <a href="#services&tab=global-shipping" class="learn-more-btn nav-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="#shipping-detail" class="learn-more-btn nav-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -388,61 +696,199 @@
         <section id="services" class="page-section">
             <h1 class="section-title">Services</h1>
             <span class="section-title-underline"></span>
-            
-            <nav class="services-nav">
-                <button class="service-nav-btn" data-target="logo-designs">Logo Design</button>
-                <button class="service-nav-btn" data-target="marketing-materials">Marketing Materials</button>
-                <button class="service-nav-btn" data-target="eco-friendly">Eco-Friendly Printing</button>
-                <button class="service-nav-btn" data-target="global-shipping">Global Shipping</button>
-            </nav>
-
-            <div id="logo-designs" class="service-content">
-                <div class="slider" data-slider-id="logo">
-                    <div class="slide"><img src="https://images.unsplash.com/photo-1557053910-d9eadeed1c58?w=900&h=500&fit=crop&q=80" alt="Logo Design 1" onerror="this.onerror=null;this.src='https://placehold.co/900x500/A8D5E2/1E40AF?text=Modern+Logo+1';"></div>
-                    <div class="slide"><img src="https://images.unsplash.com/photo-1607003509819-ea2333545601?w=900&h=500&fit=crop&q=80" alt="Logo Design 2" onerror="this.onerror=null;this.src='https://placehold.co/900x500/F9A826/8D2B0B?text=Vintage+Logo+2';"></div>
-                    <div class="slide"><img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=900&h=500&fit=crop&q=80" alt="Logo Design 3" onerror="this.onerror=null;this.src='https://placehold.co/900x500/E2A8D5/4A1EAF?text=Minimalist+Logo+3';"></div>
-                    <a class="prev">&#10094;</a>
-                    <a class="next">&#10095;</a>
+            <div class="services-overview-grid">
+                <div class="service-overview-card">
+                    <img src="https://images.unsplash.com/photo-1630588039795-75211831eb0d?w=400&h=180&fit=crop&q=80" alt="Creative logo design process" class="service-overview-image">
+                    <h3>Logo designs</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                    <a href="#logo-design-detail" class="learn-more-btn nav-link">Learn more</a>
                 </div>
-                <div class="dots-container" data-dots-for="logo"></div>
-                <p class="section-subtitle" style="margin-top: 2rem;">From concept to final design, we craft logos that tell your brand's story.</p>
+                <div class="service-overview-card">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=180&fit=crop&q=80" alt="Team discussing marketing materials" class="service-overview-image">
+                    <h3>Marketing</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                    <a href="#marketing-detail" class="learn-more-btn nav-link">Learn more</a>
+                </div>
+                <div class="service-overview-card">
+                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a5b1b5?w=400&h=180&fit=crop&q=80" alt="Hand holding a plant, representing sustainability" class="service-overview-image">
+                    <h3>Sustainable and recycling</h3>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#eco-friendly-detail" class="learn-more-btn nav-link">Learn more</a>
+                </div>
+                <div class="service-overview-card">
+                    <img src="https://images.unsplash.com/photo-1583593259465-174fa2e174c8?w=400&h=180&fit=crop&q=80" alt="Shipping containers for worldwide logistics" class="service-overview-image">
+                    <h3>Worldwide shipping</h3>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+                    <a href="#shipping-detail" class="learn-more-btn nav-link">Learn more</a>
+                </div>
+            </div>
+        
+            <h2 class="section-title" style="margin-top: 4rem;">Product Offered</h2>
+            <span class="section-title-underline"></span>
+            <p class="product-intro-text">
+                Discover our comprehensive range of print products designed to elevate any project. From custom apparel and accessories to bespoke printworks for your events and marketing, we provide all the essentials to bring your vision to life. Our design team ensures your products are stylish and professional, while our high-quality printing adds the perfect finishing touch for a seamless experience.
+            </p>
 
-                <h2 class="section-title" style="margin-top: 4rem;">Related Products</h2>
-                <span class="section-title-underline"></span>
-                <div class="product-grid">
-                    <div class="product-card"><img class="product-image" src="https://placehold.co/200x200/eef2ff/4338ca?text=Logo+1" alt="Logo 1"><div class="title-area"><p>Abstract Mark</p></div></div>
-                    <div class="product-card"><img class="product-image" src="https://placehold.co/200x200/e0e7ff/3730a3?text=Logo+2" alt="Logo 2"><div class="title-area"><p>Wordmark</p></div></div>
-                    <div class="product-card"><img class="product-image" src="https://placehold.co/200x200/c7d2fe/4338ca?text=Logo+3" alt="Logo 3"><div class="title-area"><p>Pictorial Mark</p></div></div>
-                    <div class="product-card"><img class="product-image" src="https://placehold.co/200x200/a5b4fc/4f46e5?text=Logo+4" alt="Logo 4"><div class="title-area"><p>Emblem</p></div></div>
-                    <div class="product-card"><img class="product-image" src="https://placehold.co/200x200/818cf8/6366f1?text=Logo+5" alt="Logo 5"><div class="title-area"><p>Mascot</p></div></div>
+            <div class="product-gallery-container">
+                <div class="product-gallery-item">
+                    <h3>Bags</h3>
+                    <div class="image-grid">
+                        <img src="https://images.unsplash.com/photo-1590874135017-88831920875e?w=200&h=150&fit=crop" alt="Tote Bag 1">
+                        <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=200&h=150&fit=crop" alt="Tote Bag 2">
+                        <img src="https://images.unsplash.com/photo-1579432249896-6a2c1f444b08?w=200&h=150&fit=crop" alt="Tote Bag 3">
+                        <img src="https://images.unsplash.com/photo-1590874135017-88831920875e?w=200&h=150&fit=crop" alt="Tote Bag 4">
+                        <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=200&h=150&fit=crop" alt="Tote Bag 5">
+                        <img src="https://images.unsplash.com/photo-1579432249896-6a2c1f444b08?w=200&h=150&fit=crop" alt="Tote Bag 6">
+                        <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=200&h=150&fit=crop" alt="Tote Bag 7">
+                        <img src="https://images.unsplash.com/photo-1579432249896-6a2c1f444b08?w=200&h=150&fit=crop" alt="Tote Bag 8">
+                    </div>
+                </div>
+                <div class="product-gallery-item">
+                    <h3>Mugs</h3>
+                    <div class="image-grid">
+                        <img src="https://images.unsplash.com/photo-1617991269329-948a39a9c784?w=200&h=150&fit=crop" alt="Mug 1">
+                        <img src="https://images.unsplash.com/photo-1595007932824-c1543a4e69a4?w=200&h=150&fit=crop" alt="Mug 2">
+                        <img src="https://images.unsplash.com/photo-1544948074-a3f2d57c6314?w=200&h=150&fit=crop" alt="Mug 3">
+                        <img src="https://images.unsplash.com/photo-1617991269329-948a39a9c784?w=200&h=150&fit=crop" alt="Mug 4">
+                        <img src="https://images.unsplash.com/photo-1595007932824-c1543a4e69a4?w=200&h=150&fit=crop" alt="Mug 5">
+                        <img src="https://images.unsplash.com/photo-1544948074-a3f2d57c6314?w=200&h=150&fit=crop" alt="Mug 6">
+                        <img src="https://images.unsplash.com/photo-1617991269329-948a39a9c784?w=200&h=150&fit=crop" alt="Mug 7">
+                        <img src="https://images.unsplash.com/photo-1595007932824-c1543a4e69a4?w=200&h=150&fit=crop" alt="Mug 8">
+                    </div>
+                </div>
+
+                <div class="product-gallery-item">
+                    <h3>T-Shirts</h3>
+                    <div class="image-grid">
+                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=200&h=150&fit=crop" alt="T-Shirt 1">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=150&fit=crop" alt="T-Shirt 2">
+                        <img src="https://images.unsplash.com/photo-1622445275463-afa2ab738c34?w=200&h=150&fit=crop" alt="T-Shirt 3">
+                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=200&h=150&fit=crop" alt="T-Shirt 4">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=150&fit=crop" alt="T-Shirt 5">
+                        <img src="https://images.unsplash.com/photo-1622445275463-afa2ab738c34?w=200&h=150&fit=crop" alt="T-Shirt 6">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=150&fit=crop" alt="T-Shirt 7">
+                        <img src="https://images.unsplash.com/photo-1622445275463-afa2ab738c34?w=200&h=150&fit=crop" alt="T-Shirt 8">
+                    </div>
+                </div>
+                <div class="product-gallery-item">
+                    <h3>Calendars</h3>
+                    <div class="image-grid">
+                        <img src="https://images.unsplash.com/photo-1579974198103-b7a4878a24c5?w=200&h=150&fit=crop" alt="Calendar 1">
+                        <img src="https://images.unsplash.com/photo-1634674685933-cdea21b1a89c?w=200&h=150&fit=crop" alt="Calendar 2">
+                        <img src="https://images.unsplash.com/photo-1549465220-1a8a9238cd48?w=200&h=150&fit=crop" alt="Calendar 3">
+                        <img src="https://images.unsplash.com/photo-1579974198103-b7a4878a24c5?w=200&h=150&fit=crop" alt="Calendar 4">
+                        <img src="https://images.unsplash.com/photo-1634674685933-cdea21b1a89c?w=200&h=150&fit=crop" alt="Calendar 5">
+                        <img src="https://images.unsplash.com/photo-1549465220-1a8a9238cd48?w=200&h=150&fit=crop" alt="Calendar 6">
+                        <img src="https://images.unsplash.com/photo-1579974198103-b7a4878a24c5?w=200&h=150&fit=crop" alt="Calendar 7">
+                        <img src="https://images.unsplash.com/photo-1634674685933-cdea21b1a89c?w=200&h=150&fit=crop" alt="Calendar 8">
+                    </div>
+                </div>
+                
+                <div class="product-gallery-item full-width">
+                    <h3>Canvas Prints</h3>
+                    <div class="image-grid">
+                        <img src="https://images.unsplash.com/photo-1593011033158-7c653697e887?w=200&h=150&fit=crop" alt="Canvas Print 1">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&h=150&fit=crop" alt="Canvas Print 2">
+                        <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=200&h=150&fit=crop" alt="Canvas Print 3">
+                        <img src="https://images.unsplash.com/photo-1604079628040-94301bb21b91?w=200&h=150&fit=crop" alt="Canvas Print 4">
+                        <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=200&h=150&fit=crop" alt="Canvas Print 5">
+                        <img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=200&h=150&fit=crop" alt="Canvas Print 6">
+                    </div>
                 </div>
             </div>
 
-            <div id="marketing-materials" class="service-content">
-                <div class="slider" data-slider-id="marketing">
-                    <div class="slide"><img src="https://placehold.co/900x500/fee2e2/991b1b?text=Flyers" alt="Flyers"></div>
-                    <div class="slide"><img src="https://placehold.co/900x500/dcfce7/166534?text=Banners" alt="Banners"></div>
-                    <div class="slide"><img src="https://placehold.co/900x500/e0e7ff/3730a3?text=Business+Cards" alt="Business Cards"></div>
-                    <a class="prev">&#10094;</a>
-                    <a class="next">&#10095;</a>
-                </div>
-                 <div class="dots-container" data-dots-for="marketing"></div>
-                <p class="section-subtitle" style="margin-top: 2rem;">High-quality prints that make a lasting impression, from flyers to large-format banners.</p>
-                <h2 class="section-title" style="margin-top: 4rem;">Related Products</h2>
-                <span class="section-title-underline"></span>
-                <div class="product-grid">
-                    <div class="product-card"><img class="product-image" src="https://images.unsplash.com/photo-1588347470529-8e151523b55c?w=500&auto=format&fit=crop&q=60" alt="Flyer"><div class="title-area"><p>Flyers</p></div></div>
-                    <div class="product-card"><img class="product-image" src="https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=500&auto=format&fit=crop&q=60" alt="Brochure"><div class="title-area"><p>Brochures</p></div></div>
-                    <div class="product-card"><img class="product-image" src="https://images.unsplash.com/photo-1600880292210-859bb1ae0b28?w=500&auto=format&fit=crop&q=60" alt="Business Cards"><div class="title-area"><p>Business Cards</p></div></div>
-                </div>
+            <div class="view-packages-button-container">
+                <a href="#packages" class="view-packages-btn nav-link">
+                    <span>View Our Packages</span>
+                    <span class="inner-btn">See Packages <i class="fas fa-arrow-right"></i></span>
+                </a>
             </div>
-            
-            <div id="eco-friendly" class="service-content">
-                 <p>Content for Eco-Friendly Printing</p>
-            </div>
+        </section>
 
-            <div id="global-shipping" class="service-content">
-                <p>Content for Global Shipping</p>
+        <section id="logo-design-detail" class="page-section">
+            <h1 class="section-title">Logo Design</h1>
+            <span class="section-title-underline"></span>
+            <div class="slider" data-slider-id="logo-detail">
+                <div class="slide"><img src="https://images.unsplash.com/photo-1557053910-d9eadeed1c58?w=900&h=500&fit=crop&q=80" alt="Logo Design 1" onerror="this.onerror=null;this.src='https://placehold.co/900x500/A8D5E2/1E40AF?text=Modern+Logo+1';"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1607003509819-ea2333545601?w=900&h=500&fit=crop&q=80" alt="Logo Design 2" onerror="this.onerror=null;this.src='https://placehold.co/900x500/F9A826/8D2B0B?text=Vintage+Logo+2';"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=900&h=500&fit=crop&q=80" alt="Logo Design 3" onerror="this.onerror=null;this.src='https://placehold.co/900x500/E2A8D5/4A1EAF?text=Minimalist+Logo+3';"></div>
+                <a class="prev">&#10094;</a>
+                <a class="next">&#10095;</a>
+            </div>
+            <div class="dots-container" data-dots-for="logo-detail"></div>
+            <p class="section-subtitle" style="margin-top: 2rem;">From concept to final design, we craft logos that tell your brand's story.</p>
+        
+            <h2 class="section-title" style="margin-top: 4rem;">Related Services</h2>
+            <span class="section-title-underline"></span>
+            <div class="product-grid">
+                <div class="product-card"><img class="product-image" src="https://placehold.co/200x200/eef2ff/4338ca?text=Logo+1" alt="Logo 1"><div class="title-area"><p>Abstract Mark</p></div></div>
+                <div class="product-card"><img class="product-image" src="https://placehold.co/200x200/e0e7ff/3730a3?text=Logo+2" alt="Logo 2"><div class="title-area"><p>Wordmark</p></div></div>
+                <div class="product-card"><img class="product-image" src="https://placehold.co/200x200/c7d2fe/4338ca?text=Logo+3" alt="Logo 3"><div class="title-area"><p>Pictorial Mark</p></div></div>
+                <div class="product-card"><img class="product-image" src="https://placehold.co/200x200/a5b4fc/4f46e5?text=Logo+4" alt="Logo 4"><div class="title-area"><p>Emblem</p></div></div>
+                <div class="product-card"><img class="product-image" src="https://placehold.co/200x200/818cf8/6366f1?text=Logo+5" alt="Logo 5"><div class="title-area"><p>Mascot</p></div></div>
+            </div>
+        </section>
+        
+        <section id="marketing-detail" class="page-section">
+            <h1 class="section-title">Marketing Materials</h1>
+            <span class="section-title-underline"></span>
+            <div class="slider" data-slider-id="marketing-detail">
+                <div class="slide"><img src="https://placehold.co/900x500/fee2e2/991b1b?text=Flyers" alt="Flyers"></div>
+                <div class="slide"><img src="https://placehold.co/900x500/dcfce7/166534?text=Banners" alt="Banners"></div>
+                <div class="slide"><img src="https://placehold.co/900x500/e0e7ff/3730a3?text=Business+Cards" alt="Business Cards"></div>
+                <a class="prev">&#10094;</a>
+                <a class="next">&#10095;</a>
+            </div>
+             <div class="dots-container" data-dots-for="marketing-detail"></div>
+            <p class="section-subtitle" style="margin-top: 2rem;">High-quality prints that make a lasting impression, from flyers to large-format banners.</p>
+            <h2 class="section-title" style="margin-top: 4rem;">Related Services</h2>
+            <span class="section-title-underline"></span>
+            <div class="product-grid">
+                <div class="product-card"><img class="product-image" src="https://images.unsplash.com/photo-1588347470529-8e151523b55c?w=500&auto=format&fit=crop&q=60" alt="Flyer"><div class="title-area"><p>Flyers</p></div></div>
+                <div class="product-card"><img class="product-image" src="https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=500&auto=format&fit=crop&q=60" alt="Brochure"><div class="title-area"><p>Brochures</p></div></div>
+                <div class="product-card"><img class="product-image" src="https://images.unsplash.com/photo-1600880292210-859bb1ae0b28?w=500&auto=format&fit=crop&q=60" alt="Business Cards"><div class="title-area"><p>Business Cards</p></div></div>
+            </div>
+        </section>
+        
+        <section id="eco-friendly-detail" class="page-section">
+            <h1 class="section-title">Eco-Friendly Printing</h1>
+            <span class="section-title-underline"></span>
+             <div class="slider" data-slider-id="marketing-detail">
+                <div class="slide"><img src="https://placehold.co/900x500/fee2e2/991b1b?text=Flyers" alt="Flyers"></div>
+                <div class="slide"><img src="https://placehold.co/900x500/dcfce7/166534?text=Banners" alt="Banners"></div>
+                <div class="slide"><img src="https://placehold.co/900x500/e0e7ff/3730a3?text=Business+Cards" alt="Business Cards"></div>
+                <a class="prev">&#10094;</a>
+                <a class="next">&#10095;</a>
+            </div>
+             <div class="dots-container" data-dots-for="eco-friendly-detail"></div>
+            <p class="section-subtitle" style="margin-top: 2rem;">Content for Eco-Friendly Printing</p>
+            <h2 class="section-title" style="margin-top: 4rem;">Related Services</h2>
+            <span class="section-title-underline"></span>
+            <div class="product-grid">
+                <div class="product-card"><img class="product-image" src="https://images.unsplash.com/photo-1588347470529-8e151523b55c?w=500&auto=format&fit=crop&q=60" alt="Flyer"><div class="title-area"><p>Flyers</p></div></div>
+                <div class="product-card"><img class="product-image" src="https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=500&auto=format&fit=crop&q=60" alt="Brochure"><div class="title-area"><p>Brochures</p></div></div>
+                <div class="product-card"><img class="product-image" src="https://images.unsplash.com/photo-1600880292210-859bb1ae0b28?w=500&auto=format&fit=crop&q=60" alt="Business Cards"><div class="title-area"><p>Business Cards</p></div></div>
+            </div>
+        </section>
+        
+        <section id="shipping-detail" class="page-section">
+            <h1 class="section-title">Worldwide Shipping</h1>
+            <span class="section-title-underline"></span>
+             <div class="slider" data-slider-id="marketing-detail">
+                <div class="slide"><img src="https://placehold.co/900x500/fee2e2/991b1b?text=Flyers" alt="Flyers"></div>
+                <div class="slide"><img src="https://placehold.co/900x500/dcfce7/166534?text=Banners" alt="Banners"></div>
+                <div class="slide"><img src="https://placehold.co/900x500/e0e7ff/3730a3?text=Business+Cards" alt="Business Cards"></div>
+                <a class="prev">&#10094;</a>
+                <a class="next">&#10095;</a>
+            </div>
+             <div class="dots-container" data-dots-for="eco-friendly-detail"></div>
+            <p class="section-subtitle" style="margin-top: 2rem;">Content for World Wide Shipping</p>
+            <h2 class="section-title" style="margin-top: 4rem;">Related Services</h2>
+            <span class="section-title-underline"></span>
+            <div class="product-grid">
+                <div class="product-card"><img class="product-image" src="https://images.unsplash.com/photo-1588347470529-8e151523b55c?w=500&auto=format&fit=crop&q=60" alt="Flyer"><div class="title-area"><p>Flyers</p></div></div>
+                <div class="product-card"><img class="product-image" src="https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=500&auto=format&fit=crop&q=60" alt="Brochure"><div class="title-area"><p>Brochures</p></div></div>
+                <div class="product-card"><img class="product-image" src="https://images.unsplash.com/photo-1600880292210-859bb1ae0b28?w=500&auto=format&fit=crop&q=60" alt="Business Cards"><div class="title-area"><p>Business Cards</p></div></div>
             </div>
         </section>
 
@@ -451,30 +897,54 @@
             <span class="section-title-underline"></span>
             <div class="packages-grid">
                 <div class="package-card">
-                    <img src="https://placehold.co/400x200/fecaca/991b1b?text=Party" alt="Party Package">
-                    <h3>Party</h3>
-                    <div class="package-card-body"><ul><li>menus</li><li>napkins</li><li>place settings</li><li>tablecloths</li></ul></div>
-                    <div class="package-card-footer">
-                        <a href="#" class="package-btn">Party Package</a>
+                    <div class="package-card-header party-bg">
+                        <h2 class="package-card-title-large">Party</h2>
+                    </div>
+                    <div class="package-card-content">
+                        <h3>Party</h3>
+                        <ul>
+                            <li>Menus</li>
+                            <li>Napkins</li>
+                            <li>Place settings</li>
+                            <li>Tablecloths</li>
+                        </ul>
+                        <a href="#custom-package" class="package-card-link nav-link">Party Package</a>
                     </div>
                 </div>
-                 <div class="package-card">
-                    <img src="https://placehold.co/400x200/a5f3fc/0e7490?text=Clothing" alt="Clothing Package">
-                    <h3>Clothing</h3>
-                    <div class="package-card-body"><ul><li>hoodies</li><li>sweatshirts</li><li>gym wear</li><li>beanie hats</li></ul></div>
-                    <div class="package-card-footer">
-                        <a href="#" class="package-btn">Clothing Package</a>
+
+                <div class="package-card">
+                    <div class="package-card-header clothing-bg">
+                        <h2 class="package-card-title-large">Clothing</h2>
+                    </div>
+                    <div class="package-card-content">
+                        <h3>Clothing</h3>
+                        <ul>
+                            <li>Hoodies</li>
+                            <li>Sweatshirts</li>
+                            <li>Gym wear</li>
+                            <li>Beanie hats</li>
+                        </ul>
+                        <a href="#custom-package" class="package-card-link nav-link">Clothing Package</a>
                     </div>
                 </div>
-                 <div class="package-card">
-                    <img src="https://placehold.co/400x200/d1d5db/1f2937?text=Office" alt="Office Package">
-                    <h3>Office</h3>
-                    <div class="package-card-body"><ul><li>advertising boards</li><li>diaries</li><li>notepads</li><li>storage</li></ul></div>
-                     <div class="package-card-footer">
-                        <a href="#" class="package-btn">Office Package</a>
+
+                <div class="package-card">
+                    <div class="package-card-header office-bg">
+                        <h2 class="package-card-title-large">Office</h2>
+                    </div>
+                    <div class="package-card-content">
+                        <h3>Office</h3>
+                        <ul>
+                            <li>Advertising boards</li>
+                            <li>Diaries</li>
+                            <li>Notepads</li>
+                            <li>Storage</li>
+                        </ul>
+                        <a href="#custom-package" class="package-card-link nav-link">Office Package</a>
                     </div>
                 </div>
             </div>
+
             <div class="quote-section">
                 <h2>Create Your Own Package</h2>
                 <p class="section-subtitle" style="margin: 1rem auto;">Don't see a package that fits? Build your own from scratch!</p>
@@ -687,10 +1157,6 @@
                 items: [],
                 total: 0
             };
-
-            // --- Services Page Sub-Navigation Elements ---
-            const serviceNavBtns = document.querySelectorAll('.service-nav-btn');
-            const serviceContents = document.querySelectorAll('.service-content');
             
             // --- Slider Initialization ---
             function initializeSlider(sliderElement) {
@@ -820,19 +1286,6 @@
             }
 
             // --- Main Page Navigation Logic ---
-            function activateServiceTab(tabId) {
-                if (!tabId) return;
-                
-                serviceNavBtns.forEach(btn => btn.classList.remove('active'));
-                serviceContents.forEach(content => content.classList.remove('active'));
-
-                const targetBtn = document.querySelector(`.service-nav-btn[data-target="${tabId}"]`);
-                const targetContent = document.getElementById(tabId);
-
-                if (targetBtn) targetBtn.classList.add('active');
-                if (targetContent) targetContent.classList.add('active');
-            }
-
             function showSection() {
                 const fullHash = window.location.hash || '#home';
                 let [hash, params] = fullHash.split('&');
@@ -850,6 +1303,10 @@
                     if(targetId === 'payment') {
                         populatePaymentPage();
                     }
+                     // Re-initialize sliders if they are in the newly activated section
+                    if (targetSection.querySelectorAll('.slider').length > 0) {
+                        targetSection.querySelectorAll('.slider').forEach(initializeSlider);
+                    }
                 } else {
                     document.getElementById('home').classList.add('active');
                 }
@@ -858,18 +1315,6 @@
                     const linkHash = new URL(link.href).hash.split('&')[0];
                     link.classList.toggle('active', linkHash === hash);
                 });
-                
-                if (targetId === 'services') {
-                    let tabToActivate = null;
-                    if (params) {
-                        const urlParams = new URLSearchParams(params);
-                        tabToActivate = urlParams.get('tab');
-                    }
-                    if (!tabToActivate || !document.querySelector(`.service-nav-btn[data-target="${tabToActivate}"]`)) {
-                        tabToActivate = serviceNavBtns.length > 0 ? serviceNavBtns[0].dataset.target : null;
-                    }
-                    activateServiceTab(tabToActivate);
-                }
                 
                 mobileMenu.style.display = 'none';
                 if(targetId !== 'custom-package') {
@@ -885,21 +1330,19 @@
                 mobileMenu.style.display = isMenuOpen ? 'none' : 'flex';
             });
             
-            serviceNavBtns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = btn.dataset.target;
-                    history.pushState(null, '', `#services&tab=${targetId}`);
-                    activateServiceTab(targetId);
-                });
-            });
-
             document.querySelectorAll('a.nav-link').forEach(link => {
                  link.addEventListener('click', function(e) {
                     const targetHash = new URL(this.href).hash;
+                    // Ensure we only prevent default for hash links, allowing external links to work
                     if (targetHash.startsWith('#')) {
                          e.preventDefault();
-                         window.location.hash = targetHash;
+                         // Only change the hash if it's different to prevent unnecessary reloads/jumps
+                         if(window.location.hash !== targetHash) {
+                            window.location.hash = targetHash;
+                         } else {
+                            // If hash is the same, just scroll to top (useful for re-clicking a link)
+                            window.scrollTo(0, 0);
+                         }
                     }
                 });
             });
